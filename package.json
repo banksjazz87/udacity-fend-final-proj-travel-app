@@ -4,7 +4,8 @@
   "description": "travel app for udacity",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1", 
+    "express-server": "node src/server/server.js"
   },
   "author": "Chris Banks",
   "license": "ISC",
