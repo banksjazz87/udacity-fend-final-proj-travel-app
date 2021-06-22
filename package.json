@@ -4,14 +4,17 @@
   "description": "travel app for udacity",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1", 
-    "express-server": "node src/server/server.js"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "express-server": "node src/server/server.js", 
+    "build": "webpack"
   },
   "author": "Chris Banks",
   "license": "ISC",
   "dependencies": {
     "dotenv": "^10.0.0",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "webpack": "^5.40.0",
+    "webpack-cli": "^4.7.2"
   },
   "devDependencies": {
     "@babel/core": "^7.14.6",
