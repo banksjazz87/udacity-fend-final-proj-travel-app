@@ -7,7 +7,8 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 const keys = {
-    url: process.env.GEONAMES_HOST
+    geonames: process.env.GEONAMES_USERNAME,
+    weatherbit: process.env.WEATHERBIT_KEY
 }
 
 //console.log(process.env.GEONAMES_HOST);
@@ -18,5 +19,6 @@ app.get('/', (req, res) => {
 
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`)
-    console.log(keys.url)
+    console.log(keys.geonames)
+    console.log(keys.weatherbit)
 })
