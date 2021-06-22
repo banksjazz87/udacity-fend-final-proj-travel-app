@@ -7,10 +7,10 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 const keys = {
-    url = process.env.GEONAMES_HOST
+    url: process.env.GEONAMES_HOST
 }
 
-console.log(process.env.GEONAMES_HOST);
+//console.log(process.env.GEONAMES_HOST);
 
 app.get('/', (req, res) => {
     res.send('Hello World!')
@@ -18,4 +18,5 @@ app.get('/', (req, res) => {
 
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`)
+    console.log(keys.url)
 })
