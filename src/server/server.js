@@ -14,8 +14,10 @@ const keys = {
 //console.log(process.env.GEONAMES_HOST);
 
 app.get('/', (req, res) => {
-    res.send('Hello World!')
+    res.sendFile('dist/index.html')
 });
+
+app.use(express.static('dist'));
 
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`)

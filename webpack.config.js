@@ -16,5 +16,8 @@ module.exports = {
         }
     ]
     },
-    plugins: [new HtmlWebPackPlugin()],
+    plugins: [new HtmlWebPackPlugin({
+        template: "./src/client/html/views/index.html", 
+        filename: "./index.html"
+    })],
 };
