@@ -1,11 +1,16 @@
 const express = require('express');
 const app = express();
+const cors = require('cors');
 const port = 3080;
 
 //setting up an instance of .env
 const dotenv = require('dotenv');
 dotenv.config();
 
+//adding middleware
+app.use(cors());
+
+//keys for the various apis
 const keys = {
     geonames: process.env.GEONAMES_USERNAME,
     weatherbit: process.env.WEATHERBIT_KEY
@@ -14,7 +19,7 @@ const keys = {
 //console.log(process.env.GEONAMES_HOST);
 
 app.get('/', (req, res) => {
-    res.sendFile('dist/index.html')
+    res.sendFile("index.html", {root: "dist"})
 });
 
 app.use(express.static('dist'));
