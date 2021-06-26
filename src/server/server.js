@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const cors = require('cors');
+const bodyParser = require('body-parser');
 const port = 3080;
 
 //setting up an instance of .env
@@ -9,6 +10,7 @@ dotenv.config();
 
 //adding middleware
 app.use(cors());
+app.use(bodyParser.urlencoded({extended: true}));
 
 //keys for the various apis
 const keys = {
