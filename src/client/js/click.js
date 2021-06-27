@@ -1,8 +1,8 @@
 function clickTest(){
-    let button = document.getElementById('submit');
+    const button = document.getElementById('submit');
     button.addEventListener('click', () => {
-        alert("The button has been clicked");
+        alert('The button has been clicked')
     });
-}
+    };
 
 export{clickTest}
