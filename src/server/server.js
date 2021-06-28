@@ -15,7 +15,8 @@ app.use(bodyParser.urlencoded({extended: true}));
 //keys for the various apis
 const keys = {
     geonames: process.env.GEONAMES_USERNAME,
-    weatherbit: process.env.WEATHERBIT_KEY
+    weatherbit: process.env.WEATHERBIT_KEY, 
+    pixaby: process.env.PIXABY_KEY
 }
 
 //console.log(process.env.GEONAMES_HOST);
@@ -30,4 +31,5 @@ app.listen(port, () => {
     console.log(`Server is running on port ${port}`)
     console.log(keys.geonames)
     console.log(keys.weatherbit)
+    console.log(keys.pixaby)
 })
