@@ -1,5 +1,8 @@
 function testIt(){
-console.log("It's working");
+    let button = document.querySelector('button');
+    button.addEventListener('click', () => {
+        alert('this is working, batman');
+    });
 }
 
 export{testIt}
