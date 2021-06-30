@@ -1,8 +1,8 @@
-function testIt(){
-    let button = document.querySelector('button');
+function apiCall(){
+    let button = document.getElementById('submit');
     button.addEventListener('click', () => {
         alert('this is working, batman');
     });
 }
 
-export{testIt}
+export{apiCall}
