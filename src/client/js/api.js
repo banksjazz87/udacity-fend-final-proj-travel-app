@@ -1,8 +1,10 @@
+import { keysInfo } from "./keys.js"
 function apiCall(){
     let button = document.getElementById('submit');
     button.addEventListener('click', () => {
-        alert('this is working, batman');
-    });
+        //Client.keysInfo
+       keysInfo()
+        });
 }
 
 export{apiCall}

@@ -25,6 +25,10 @@ app.get('/', (req, res) => {
     res.sendFile("index.html", {root: "dist"})
 });
 
+app.get('/keyData', (req, res) => {
+    res.send(keys);
+})
+
 app.use(express.static('dist'));
 
 app.listen(port, () => {
