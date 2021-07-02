@@ -3,9 +3,13 @@ import{keysInfo} from './js/keys.js'
 import './styles/style.scss'
 
 
+
+
 apiCall();
 
 export{
-    keysInfo
+    keysInfo, 
+    apiCall
 }
+
 
