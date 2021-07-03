@@ -10,19 +10,19 @@ dotenv.config();
 
 //adding middleware
 app.use(cors());
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 //keys for the various apis
 const keys = {
     geonames: process.env.GEONAMES_USERNAME,
-    weatherbit: process.env.WEATHERBIT_KEY, 
+    weatherbit: process.env.WEATHERBIT_KEY,
     pixaby: process.env.PIXABY_KEY
 }
 
 //console.log(process.env.GEONAMES_HOST);
 
 app.get('/', (req, res) => {
-    res.sendFile("index.html", {root: "dist"})
+    res.sendFile("index.html", { root: "dist" })
 });
 
 app.get('/keyData', (req, res) => {

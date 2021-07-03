@@ -1,11 +1,12 @@
 //import { keysInfo } from "./keys.js"
 
-function apiCall(){
+function apiCall() {
     let button = document.getElementById('submit');
     button.addEventListener('click', () => {
-        MyLibrary.keysInfo();
-})
+        MyShit.keysInfo();
+    })
+    console.log('crap');
 }
 
 
-export{apiCall}
+export { apiCall }

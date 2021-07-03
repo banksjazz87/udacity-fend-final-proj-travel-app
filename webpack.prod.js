@@ -12,28 +12,24 @@ module.exports = {
         minimizer: [new TerserPlugin({}), new OptimizeCSSAssetsPlugin({})]
     },
     output: {
-        library: {
-            name: 'MyLibrary',
-            type: 'var',
-        },
+        library: "MyShit",
     },
     module: {
-        rules: [
-        {
+        rules: [{
             test: /\.m?js$/,
             exclude: /node_modules/,
             use: {
                 loader: 'babel-loader',
-                
-            }, 
+
+            },
             test: /\.scss$/,
             use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
-        }
-    ]
+        }]
     },
     plugins: [new HtmlWebPackPlugin({
-        template: "./src/client/html/views/index.html", 
-        filename: "./index.html"
-    }), 
-    new MiniCssExtractPlugin({ filename: '[name].css'})],
+            template: "./src/client/html/views/index.html",
+            filename: "./index.html"
+        }),
+        new MiniCssExtractPlugin({ filename: '[name].css' })
+    ],
 };

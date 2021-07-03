@@ -8,38 +8,33 @@ module.exports = {
     entry: './src/client/index.js',
     devtool: 'source-map',
     output: {
-        library: {
-            name: 'MyLibrary',
-            type: 'var',
-        },
+        library: "MyShit",
     },
     devServer: {
         port: 5040
     },
     module: {
-        rules: [
-        {
+        rules: [{
             test: /\.m?js$/,
             exclude: /node_modules/,
             use: {
                 loader: 'babel-loader',
-                
-            }, 
+
+            },
             test: /\.scss$/,
             use: ['style-loader', 'css-loader', 'sass-loader']
-        }
-    ]
+        }]
     },
     plugins: [
-    new HtmlWebPackPlugin({
-        template: "./src/client/html/views/index.html", 
-        filename: "./index.html"
-    }), 
-    new CleanWebpackPlugin({
-        dry: true,
-        verbose: true, 
-        cleanStaleWebpackAssets: true,
-        protectWebpackAssets: false
-    })
+        new HtmlWebPackPlugin({
+            template: "./src/client/html/views/index.html",
+            filename: "./index.html"
+        }),
+        new CleanWebpackPlugin({
+            dry: true,
+            verbose: true,
+            cleanStaleWebpackAssets: true,
+            protectWebpackAssets: false
+        })
     ],
 };
