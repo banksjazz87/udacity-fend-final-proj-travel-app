@@ -7,7 +7,7 @@ function keysInfo() {
      }catch(e){
          console.log("error", e)
      }*/
-    alert('sup, yo');
+    console.log('sup, yo');
 }
 
 export { keysInfo }

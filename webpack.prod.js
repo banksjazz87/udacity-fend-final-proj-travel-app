@@ -12,7 +12,10 @@ module.exports = {
         minimizer: [new TerserPlugin({}), new OptimizeCSSAssetsPlugin({})]
     },
     output: {
-        library: "MyShit",
+        library: {
+            name: 'MyLibrary',
+            type: 'var'
+        },
     },
     module: {
         rules: [{

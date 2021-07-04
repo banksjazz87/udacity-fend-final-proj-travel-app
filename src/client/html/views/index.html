@@ -25,6 +25,12 @@
     <div id="output_container">
     </div>
 </body>
-<script src="../../../../dist/main.js"></script>
+<script>
+    const button = document.getElementById('submit');
+
+    button.addEventListener('click', () => {
+        return MyLibrary.keysInfo;
+    })
+</script>
 
 </html>

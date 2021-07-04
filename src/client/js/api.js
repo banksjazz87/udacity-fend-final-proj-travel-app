@@ -3,9 +3,8 @@
 function apiCall() {
     let button = document.getElementById('submit');
     button.addEventListener('click', () => {
-        MyShit.keysInfo();
+        window.MyLibrary.keysInfo();
     })
-    console.log('crap');
 }
 
 

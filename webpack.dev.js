@@ -8,7 +8,10 @@ module.exports = {
     entry: './src/client/index.js',
     devtool: 'source-map',
     output: {
-        library: "MyShit",
+        library: {
+            name: 'MyLibrary',
+            type: 'var'
+        },
     },
     devServer: {
         port: 5040
