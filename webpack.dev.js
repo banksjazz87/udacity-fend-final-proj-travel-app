@@ -5,20 +5,20 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
     mode: 'development',
-    entry: './src/client/index.js',
     devtool: 'source-map',
+    entry: './src/client/index.js',
     output: {
         library: {
-            name: 'MyLibrary',
-            type: 'var'
-        },
+            name: "MyLib",
+            type: "var"
+        }
     },
     devServer: {
         port: 5040
     },
     module: {
         rules: [{
-            test: /\.m?js$/,
+            test: /\.js$/,
             exclude: /node_modules/,
             use: {
                 loader: 'babel-loader',

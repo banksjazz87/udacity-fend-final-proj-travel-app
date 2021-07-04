@@ -19,18 +19,19 @@
         <label>Travel Date</label>
         <input id="date" type="date" />
         <br/>
-        <button id="submit" type="button">Enter</button>
+        <button id="enter" type="button">Enter</button>
     </form>
 
     <div id="output_container">
     </div>
 </body>
+<script src="../../../../dist/main.js"></script>
 <script>
-    const button = document.getElementById('submit');
+    const button = document.getElementById('enter');
 
     button.addEventListener('click', () => {
-        return MyLibrary.keysInfo;
-    })
+        myLib.keysInfo()
+    });
 </script>
 
 </html>

@@ -7,7 +7,8 @@ function keysInfo() {
      }catch(e){
          console.log("error", e)
      }*/
-    console.log('sup, yo');
+    alert('sup, yo');
+    myLib.apiCall();
 }
 
 export { keysInfo }
