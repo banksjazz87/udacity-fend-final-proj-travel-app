@@ -9,9 +9,11 @@ module.exports = {
     mode: 'production',
     entry: './src/client/index.js',
     output: {
+        path: path.resolve(__dirname, "dist"),
+        filename: "main.js",
         library: {
-            name: "myLib",
-            type: "var"
+            name: 'MyLib',
+            type: 'var'
         }
     },
     /*optimization: {
