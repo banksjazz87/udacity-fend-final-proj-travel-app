@@ -1,7 +1,7 @@
 //import { keysInfo } from "./keys.js"
 
 function click() {
-    console.log('okay');
+    console.log('okay, fart face');
 }
 
 

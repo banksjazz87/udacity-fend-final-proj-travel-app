@@ -7,14 +7,6 @@ module.exports = {
     mode: 'development',
     devtool: 'source-map',
     entry: './src/client/index.js',
-    /*output: {
-        path: path.resolve(__dirname, "dist"),
-        filename: "main.js",
-        library: {
-            name: 'MyLib',
-            type: 'var'
-        }
-    },*/
     devServer: {
         port: 5040
     },
@@ -24,7 +16,6 @@ module.exports = {
             exclude: /node_modules/,
             use: {
                 loader: 'babel-loader',
-
             },
             test: /\.scss$/,
             use: ['style-loader', 'css-loader', 'sass-loader']

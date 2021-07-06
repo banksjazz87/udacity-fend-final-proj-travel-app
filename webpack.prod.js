@@ -9,16 +9,16 @@ module.exports = {
     mode: 'production',
     entry: './src/client/index.js',
     output: {
-        path: path.resolve(__dirname, "dist"),
-        filename: "main.js",
         library: {
             name: 'MyLib',
             type: 'var'
         }
     },
-    /*optimization: {
-        minimizer: [new TerserPlugin({}), new OptimizeCSSAssetsPlugin({})]
-    },*/
+    optimization: {
+        minimizer: [new TerserPlugin({}),
+            new OptimizeCSSAssetsPlugin({})
+        ]
+    },
     module: {
         rules: [{
             test: /\.m?js$/,
