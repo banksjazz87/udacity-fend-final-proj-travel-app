@@ -19,6 +19,9 @@ export { geonamesApi }
 //function to return the info from the geonamesApi to the DOM
 
 function displayedGeo(data) {
+
+    removePrevious();
+
     const select = document.createElement('select');
     const selectContainer = document.getElementById('select_location');
     selectContainer.appendChild(select);
@@ -34,15 +37,21 @@ function displayedGeo(data) {
         options.textContent = place + " " + state + " " + country;
 
         select.appendChild(options);
-
-
-        //The below code doesn't work, because the options don't actually exist in the dom, will need to run another loop and apply the even listener
-        options.addEventListener('click', (e) => {
-            console.log(e.target.value);
-        })
-
-        arr.push(place + " " + state + " " + country);
     }
-    console.log(arr);
+    select.addEventListener('change', (e) => {
+        console.log(e.target.value);
+    })
+}
 
+//Remove options when a new destination is entered
+
+function removePrevious() {
+    const select = document.querySelector('select');
+
+    if (select.length > 0) {
+        let option = document.querySelector('option');
+        while (select.length > 0) {
+            select.removeChild(option)
+        }
+    }
 }
