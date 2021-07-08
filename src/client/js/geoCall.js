@@ -1,10 +1,14 @@
 let currentOptions = [];
 
+let newOptions = {};
+
 
 //A generic function to return the various api information
 
 async function geonamesApi(key) {
     let currentValue = document.getElementById('destination');
+    currentOptions = [];
+    newOptions = {};
 
     const response = await fetch("http://api.geonames.org/searchJSON?q=" + currentValue.value + "&maxRows=10&username=" + key);
 
@@ -14,27 +18,26 @@ async function geonamesApi(key) {
         console.log(res.geonames);
         for (let i = 0; i < res.geonames.length; i++) {
 
-            let newOptions = {
+            newOptions = {
                 key: i,
-                place: Object.values(res.geonames[i].toponymName),
-                state: Object.values(res.geonames[i].adminName1),
-                country: Object.values(res.geonames[i].countryName),
-                lat: Object.values(res.geonames[i].lat),
-                long: Object.values(res.geonames[i].lng)
+                place: Object.values(res.geonames[i].toponymName).join(''),
+                state: Object.values(res.geonames[i].adminName1).join(''),
+                country: Object.values(res.geonames[i].countryName).join(''),
+                lat: Object.values(res.geonames[i].lat).join(''),
+                long: Object.values(res.geonames[i].lng).join('')
             }
+            currentOptions.push(newOptions);
         }
-        currentOptions.push(newOptions);
         console.log(currentOptions);
-        displayedGeo(res.geonames);
+        displayedGeo(currentOptions);
     } catch (error) {
         console.log('error', error);
     }
 }
-
 export { geonamesApi }
 
-//function to return the info from the geonamesApi to the DOM
 
+//function to return the info from the geonamesApi to the DOM
 function displayedGeo(data) {
 
     //removePrevious();
@@ -46,9 +49,9 @@ function displayedGeo(data) {
     let arr = [];
 
     for (let i = 0; i < data.length; i++) {
-        let place = "LOCATION: " + Object.values(data[i].name).join('');
-        let state = "STATE: " + Object.values(data[i].adminName1).join('') + ",";
-        let country = "COUNTRY: " + Object.values(data[i].countryName).join('');
+        let place = "LOCATION: " + Object.values(data[i].place).join('');
+        let state = "STATE: " + Object.values(data[i].state).join('') + ",";
+        let country = "COUNTRY: " + Object.values(data[i].country).join('');
 
         let options = document.createElement('option');
         options.textContent = place + " " + state + " " + country;
@@ -60,15 +63,14 @@ function displayedGeo(data) {
     })
 }
 
-//Remove options when a new destination is entered
+//Clear past options
+function clearOptions() {
+    let currentOptions = document.querySelectorAll('option');
+    let optionsParent = document.querySelector('select');
 
-function removePrevious() {
-    const select = document.querySelector('select');
-
-    if (select) {
-        let option = document.querySelector('option');
-        while (select.length > 0) {
-            select.removeChild(option)
-        }
+    while (currentOptions.length > 0) {
+        optionsParent.removeChild(currentOptions);
     }
 }
+
+export { clearOptions }
