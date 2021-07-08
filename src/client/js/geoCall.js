@@ -1,3 +1,5 @@
+let currentOptions = [];
+
 //A generic function to return the various api information
 
 async function geonamesApi(key) {
@@ -8,9 +10,10 @@ async function geonamesApi(key) {
     try {
         const res = await (response.json());
         console.log(res);
+        console.log(res.geonames);
         displayedGeo(res.geonames);
     } catch (e) {
-        console.log(error);
+        console.log('error', e);
     }
 }
 
@@ -20,7 +23,7 @@ export { geonamesApi }
 
 function displayedGeo(data) {
 
-    removePrevious();
+    //removePrevious();
 
     const select = document.createElement('select');
     const selectContainer = document.getElementById('select_location');
@@ -48,7 +51,7 @@ function displayedGeo(data) {
 function removePrevious() {
     const select = document.querySelector('select');
 
-    if (select.length > 0) {
+    if (select) {
         let option = document.querySelector('option');
         while (select.length > 0) {
             select.removeChild(option)
