@@ -8,5 +8,5 @@ import './styles/style.scss'
 export {
     keysInfo,
     click,
-    geonamesApi
+    geonamesApi,
 }

@@ -1,5 +1,6 @@
 let currentOptions = [];
 
+
 //A generic function to return the various api information
 
 async function geonamesApi(key) {
@@ -11,9 +12,22 @@ async function geonamesApi(key) {
         const res = await (response.json());
         console.log(res);
         console.log(res.geonames);
+        for (let i = 0; i < res.geonames.length; i++) {
+
+            let newOptions = {
+                key: i,
+                place: Object.values(res.geonames[i].toponymName),
+                state: Object.values(res.geonames[i].adminName1),
+                country: Object.values(res.geonames[i].countryName),
+                lat: Object.values(res.geonames[i].lat),
+                long: Object.values(res.geonames[i].lng)
+            }
+        }
+        currentOptions.push(newOptions);
+        console.log(currentOptions);
         displayedGeo(res.geonames);
-    } catch (e) {
-        console.log('error', e);
+    } catch (error) {
+        console.log('error', error);
     }
 }
 
