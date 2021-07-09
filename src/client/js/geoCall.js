@@ -1,14 +1,12 @@
 let currentOptions = [];
 
-let newOptions = {};
+let newOptions = { key: "" };
 
 
 //A generic function to return the various api information
 
 async function geonamesApi(key) {
     let currentValue = document.getElementById('destination');
-    currentOptions = [];
-    newOptions = {};
 
     const response = await fetch("http://api.geonames.org/searchJSON?q=" + currentValue.value + "&maxRows=10&username=" + key);
 
@@ -65,11 +63,17 @@ function displayedGeo(data) {
 
 //Clear past options
 function clearOptions() {
-    let currentOptions = document.querySelectorAll('option');
+    /*let currentOptions = document.querySelectorAll('option');
     let optionsParent = document.querySelector('select');
 
     while (currentOptions.length > 0) {
         optionsParent.removeChild(currentOptions);
+    }*/
+    const selectMenu = document.querySelector('select');
+
+    if (selectMenu) {
+        selectMenu.remove()
+        currentOptions = [];
     }
 }
 

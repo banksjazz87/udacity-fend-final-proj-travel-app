@@ -32,12 +32,15 @@
     const button = document.getElementById('enter');
 
     button.addEventListener('click', () => {
+        MyLib.clearOptions();
         MyLib.keysInfo();
     });
 
     //This event listener will clear the current options menu
     const clearButton = document.getElementById('clear');
-    clearButton.addEventListener('click', () => {
+
+    clearButton.addEventListener('click', (e) => {
+        e.preventDefault();
         MyLib.clearOptions();
     })
 </script>
