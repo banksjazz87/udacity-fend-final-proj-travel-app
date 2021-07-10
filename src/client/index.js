@@ -1,5 +1,5 @@
 import { click } from './js/click.js'
-import { keysInfo } from './js/keys.js'
+import { keysInfo } from './js/app.js'
 import { geonamesApi } from './js/geoCall.js'
 import { clearOptions } from './js/geoCall.js'
 import { displayedGeo } from './js/geoCall.js'

@@ -37,3 +37,9 @@ app.listen(port, () => {
     console.log(keys.weatherbit)
     console.log(keys.pixaby)
 })
+
+const currentData = {
+    latitude: "",
+    longitude: "",
+    date: ""
+}
