@@ -1,12 +1,9 @@
-let currentOptions = [];
-
-let newOptions = { key: "" };
-
-
 //A generic function to return the various api information
 
 async function geonamesApi(key) {
     let currentValue = document.getElementById('destination');
+    let currentOptions = [];
+    let newOptions = { key: '' };
 
     const response = await fetch("http://api.geonames.org/searchJSON?q=" + currentValue.value + "&maxRows=10&username=" + key);
 
@@ -26,7 +23,8 @@ async function geonamesApi(key) {
             }
             currentOptions.push(newOptions);
         }
-        console.log(currentOptions);
+        console.log('current options = ', currentOptions)
+        console.log('newOptions = ', newOptions);
         displayedGeo(currentOptions);
     } catch (error) {
         console.log('error', error);
@@ -38,13 +36,10 @@ export { geonamesApi }
 //function to return the info from the geonamesApi to the DOM
 function displayedGeo(data) {
 
-    //removePrevious();
-
     const select = document.createElement('select');
     const selectContainer = document.getElementById('select_location');
     selectContainer.appendChild(select);
 
-    let arr = [];
 
     for (let i = 0; i < data.length; i++) {
         let place = "LOCATION: " + Object.values(data[i].place).join('');
@@ -61,19 +56,14 @@ function displayedGeo(data) {
     })
 }
 
+export { displayedGeo }
+
 //Clear past options
 function clearOptions() {
-    /*let currentOptions = document.querySelectorAll('option');
-    let optionsParent = document.querySelector('select');
-
-    while (currentOptions.length > 0) {
-        optionsParent.removeChild(currentOptions);
-    }*/
     const selectMenu = document.querySelector('select');
 
     if (selectMenu) {
         selectMenu.remove()
-        currentOptions = [];
     }
 }
 
