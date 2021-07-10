@@ -42,17 +42,18 @@ function displayedGeo(data) {
 
 
     for (let i = 0; i < data.length; i++) {
+        let optionNum = i + 1;
         let place = "LOCATION: " + Object.values(data[i].place).join('');
         let state = "STATE: " + Object.values(data[i].state).join('') + ",";
         let country = "COUNTRY: " + Object.values(data[i].country).join('');
 
         let options = document.createElement('option');
-        options.textContent = place + " " + state + " " + country;
+        options.textContent = optionNum + "." + place + " " + state + " " + country;
 
         select.appendChild(options);
     }
     select.addEventListener('change', (e) => {
-        console.log(e.target.value);
+        console.log(e.target.value[0]);
     })
 }
 
