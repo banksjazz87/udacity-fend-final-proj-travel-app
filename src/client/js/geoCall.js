@@ -1,6 +1,6 @@
 //A generic function to return the various api information
 
-async function geonamesApi(key) {
+const geonamesApi = async(key) => {
     let currentValue = document.getElementById('destination');
     let currentOptions = [];
     let newOptions = { key: '' };
@@ -34,7 +34,7 @@ export { geonamesApi }
 
 
 //function to return the info from the geonamesApi to the DOM
-function displayedGeo(data) {
+const displayedGeo = (data) => {
 
     const select = document.createElement('select');
     const selectContainer = document.getElementById('select_location');
@@ -60,7 +60,7 @@ function displayedGeo(data) {
 export { displayedGeo }
 
 //Clear past options
-function clearOptions() {
+const clearOptions = () => {
     const selectMenu = document.querySelector('select');
 
     if (selectMenu) {

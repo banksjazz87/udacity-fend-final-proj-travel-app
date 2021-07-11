@@ -1,4 +1,4 @@
-import { click } from './js/click.js'
+import { postData } from './js/post.js'
 import { keysInfo } from './js/app.js'
 import { geonamesApi } from './js/geoCall.js'
 import { clearOptions } from './js/geoCall.js'
@@ -9,7 +9,7 @@ import './styles/style.scss'
 
 export {
     keysInfo,
-    click,
+    postData,
     geonamesApi,
     clearOptions,
     displayedGeo
