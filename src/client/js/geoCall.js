@@ -1,11 +1,21 @@
-//A generic function to return the various api information
+let currentOptions = [];
+let newOptions = {
+        key: '',
+        place: '',
+        state: '',
+        lat: '',
+        long: '',
+        date: ''
 
+    }
+    //A generic function to return the various api information
 const geonamesApi = async(key) => {
     let currentValue = document.getElementById('destination');
-    let currentOptions = [];
-    let newOptions = { key: '' };
+    /*let currentOptions = [];
+    let newOptions = { key: '' };*/
+    currentOptions = [];
 
-    const response = await fetch("http://api.geonames.org/searchJSON?q=" + currentValue.value + "&maxRows=10&username=" + key);
+    const response = await fetch("http://api.geonames.org/searchJSON?q=" + currentValue.value + "&maxRows=20&username=" + key);
 
     try {
         const res = await (response.json());
@@ -43,12 +53,12 @@ const displayedGeo = (data) => {
 
     for (let i = 0; i < data.length; i++) {
         let optionNum = i + 1;
-        let place = "LOCATION: " + Object.values(data[i].place).join('');
-        let state = "STATE: " + Object.values(data[i].state).join('') + ",";
-        let country = "COUNTRY: " + Object.values(data[i].country).join('');
+        let place = "Location: " + Object.values(data[i].place).join('').toUpperCase();
+        let state = "State: " + Object.values(data[i].state).join('').toUpperCase();
+        let country = "Country: " + Object.values(data[i].country).join('').toUpperCase();
 
         let options = document.createElement('option');
-        options.textContent = optionNum + "." + place + " " + state + " " + country;
+        options.textContent = optionNum + ". " + place + "  " + state + "  " + country;
 
         select.appendChild(options);
     }

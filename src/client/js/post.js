@@ -1,7 +1,5 @@
-import { response } from "express";
-
 //import { keysInfo } from "./keys.js"
-const postData = async(url = "/userData", data = {}) => {
+const postData = async(url = " ", data = {}) => {
     const resposne = await fetch(url, {
         method: 'POST',
         mode: 'cors',
