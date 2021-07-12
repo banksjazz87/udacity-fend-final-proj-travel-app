@@ -43,3 +43,7 @@ const currentData = {
     longitude: "",
     date: ""
 }
+
+app.post('/currentUserData', (req, res) => {
+    console.log(req.body());
+})

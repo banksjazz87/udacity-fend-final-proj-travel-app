@@ -75,8 +75,9 @@ const displayedGeo = (data) => {
             arr.push(choice[i]);
             i++;
         }
-
-        console.log(arr.join(''));
+        let choiceResults = currentOptions[arr.join('') - 1]
+        console.log(choiceResults);
+        MyLib.postData("/currentUserData", choiceResults)
     })
 }
 
