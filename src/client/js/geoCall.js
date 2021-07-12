@@ -1,14 +1,17 @@
+//An array to hold the current options that have been retrieved from the api
 let currentOptions = [];
-let newOptions = {
-        key: '',
-        place: '',
-        state: '',
-        lat: '',
-        long: '',
-        date: ''
 
-    }
-    //A generic function to return the various api information
+//An empty object, to serve as a placeholder for the values that we want to retrieve
+let newOptions = {
+    key: '',
+    place: '',
+    state: '',
+    lat: '',
+    long: '',
+    date: ''
+}
+
+//A generic function to return the various api information
 const geonamesApi = async(key) => {
     let currentValue = document.getElementById('destination');
     /*let currentOptions = [];
@@ -62,8 +65,18 @@ const displayedGeo = (data) => {
 
         select.appendChild(options);
     }
+
     select.addEventListener('change', (e) => {
-        console.log(e.target.value[0]);
+        let choice = Object.values(e.target.value).join("");
+
+        let i = 0;
+        let arr = [];
+        while (parseInt(choice[i])) {
+            arr.push(choice[i]);
+            i++;
+        }
+
+        console.log(arr.join(''));
     })
 }
 
