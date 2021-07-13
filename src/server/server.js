@@ -44,6 +44,6 @@ const currentData = {
     date: ""
 }
 
-app.post('/currentUserData', (req, res) => {
-    console.log(req.body());
+app.post('http://localhost:3080/currentUserData', (req, res) => {
+    console.log(req.body);
 })

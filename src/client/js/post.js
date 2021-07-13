@@ -1,4 +1,3 @@
-//import { keysInfo } from "./keys.js"
 const postData = async(url = " ", data = {}) => {
     const resposne = await fetch(url, {
         method: 'POST',
@@ -12,7 +11,11 @@ const postData = async(url = " ", data = {}) => {
         referrerPolicy: 'no-referrer',
         body: JSON.stringify(data)
     });
-    return response.json();
+    try {
+        const newData = await response.json();
+    } catch (error) {
+        console.log('eror', error);
+    }
 }
 
 export { postData }
