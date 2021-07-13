@@ -38,12 +38,38 @@ app.listen(port, () => {
     console.log(keys.pixaby)
 })
 
-const currentData = {
-    latitude: "",
-    longitude: "",
-    date: ""
+//An empty object to hold all of the data that is being pulled from the user and the various apis
+let currentData = {
+    key: '',
+    place: '',
+    state: '',
+    lat: '',
+    long: '',
+    date: ''
 }
 
-app.post('http://localhost:3080/currentUserData', (req, res) => {
-    console.log(req.body);
+//An empty array to hold all of the data that has been submitted
+let allData = [];
+
+app.post('/currentUserData', updatedSelection);
+
+//function that takes the req.body and updates values in the currentData object
+function updatedSelection(req, res) {
+    currentData = {
+        key: req.body.key,
+        place: req.body.place,
+        state: req.body.state,
+        country: req.body.country,
+        lat: req.body.lat,
+        long: req.body.long
+    }
+    allData.push(currentData);
+    res.send(currentData);
+    console.log(allData);
+
+}
+
+//Returns all userData
+app.get('/allData', (req, res) => {
+    res.send(allData);
 })

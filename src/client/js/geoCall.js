@@ -76,7 +76,10 @@ const displayedGeo = (data) => {
             i++;
         }
         let choiceResults = currentOptions[arr.join('') - 1]
+        currentOptions = choiceResults;
         console.log('lat = ' + choiceResults.lat + ' long = ' + choiceResults.long);
+        console.log("all choice " + Object.entries(choiceResults));
+        console.log(currentOptions.lat, currentOptions.long, currentOptions.key, currentOptions.key)
         MyLib.postData("http://localhost:3080/currentUserData", { lat: choiceResults.lat })
     })
 }
