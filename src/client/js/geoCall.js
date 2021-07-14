@@ -71,12 +71,17 @@ const displayedGeo = (data) => {
 
         let i = 0;
         let arr = [];
+
         while (parseInt(choice[i])) {
             arr.push(choice[i]);
             i++;
         }
+
         let choiceResults = currentOptions[arr.join('') - 1]
+
+        //Change value of the main holding array
         currentOptions = choiceResults;
+
         console.log('lat = ' + choiceResults.lat + ' long = ' + choiceResults.long);
         console.log("all choice " + Object.entries(choiceResults));
         console.log(currentOptions.lat, currentOptions.long, currentOptions.key, currentOptions.key)

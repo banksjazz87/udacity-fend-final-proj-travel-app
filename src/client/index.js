@@ -3,6 +3,7 @@ import { keysInfo } from './js/app.js'
 import { geonamesApi } from './js/geoCall.js'
 import { clearOptions } from './js/geoCall.js'
 import { displayedGeo } from './js/geoCall.js'
+import { weatherbit } from './js/weatherbitCall.js'
 import './styles/style.scss'
 
 
@@ -12,5 +13,6 @@ export {
     postData,
     geonamesApi,
     clearOptions,
-    displayedGeo
+    displayedGeo,
+    weatherbit
 }

@@ -3,6 +3,7 @@
     button.addEventListener('click', () => {
         MyLib.clearOptions();
         MyLib.keysInfo()
+            .then(data => MyLib.geonamesApi(data.geonames))
     });
 
     //This event listener will clear the current options menu

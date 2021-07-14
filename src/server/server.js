@@ -56,8 +56,6 @@ app.post('/currentUserData', updatedSelection);
 
 //function that takes the req.body and updates values in the currentData object
 function updatedSelection(req, res) {
-
-    //currentData.test = req.body.test;
     currentData = {
         key: req.body.key,
         place: req.body.place,
