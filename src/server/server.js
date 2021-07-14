@@ -39,14 +39,15 @@ app.listen(port, () => {
 })
 
 //An empty object to hold all of the data that is being pulled from the user and the various apis
-let currentData = {
+/*let currentData = {
     key: '',
     place: '',
     state: '',
     lat: '',
     long: '',
     date: ''
-}
+}*/
+let currentData = {};
 
 //An empty array to hold all of the data that has been submitted
 let allData = [];
@@ -55,6 +56,8 @@ app.post('/currentUserData', updatedSelection);
 
 //function that takes the req.body and updates values in the currentData object
 function updatedSelection(req, res) {
+
+    //currentData.test = req.body.test;
     currentData = {
         key: req.body.key,
         place: req.body.place,

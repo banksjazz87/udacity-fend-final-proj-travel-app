@@ -1,5 +1,5 @@
 const postData = async(url = " ", data = {}) => {
-    const resposne = await fetch(url, {
+    const response = await fetch(url, {
         method: 'POST',
         mode: 'cors',
         cache: 'no-cache',
@@ -13,6 +13,7 @@ const postData = async(url = " ", data = {}) => {
     });
     try {
         const newData = await response.json();
+        return newData;
     } catch (error) {
         console.log('eror', error);
     }
