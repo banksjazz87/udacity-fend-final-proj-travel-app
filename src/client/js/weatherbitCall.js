@@ -13,3 +13,29 @@ const weatherbit = async(key, lat, long) => {
 }
 
 export { weatherbit }
+
+const returnDates = (element) => {
+
+    let wantedDate = document.getElementById(element);
+    let arr = [];
+
+    for (let i = 0; i <= 5; i++) {
+        arr.push(wantedDate.value[i]);
+    }
+
+    let month = arr.slice(0, 1);
+    let day = arr.slice(3, 4);
+
+    console.log("month = " + arr[] + "day = " + day);
+}
+
+export { returnDates };
+
+const leadingZero = (num) => {
+
+    if (num.length === 1) {
+        let numString = num.toString();
+        let newNum = "0" + numString;
+    }
+    console.log(newNum);
+}

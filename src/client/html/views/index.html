@@ -43,8 +43,10 @@
     const clearButton = document.getElementById('clear');
 
     clearButton.addEventListener('click', (e) => {
+        /*e.preventDefault();
+        MyLib.clearOptions();*/
         e.preventDefault();
-        MyLib.clearOptions();
+        MyLib.returnDates("start_date");
     });
 </script>
 
