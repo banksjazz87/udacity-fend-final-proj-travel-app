@@ -1,4 +1,4 @@
-const weatherbit = async(key, lat, long, start, end) => {
+const weatherbit = async(key, lat, long) => {
     let start = document.getElementById('start_date');
     let end = document.getElementById('end_date');
 
