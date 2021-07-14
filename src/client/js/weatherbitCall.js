@@ -14,7 +14,7 @@ const weatherbit = async(key, lat, long) => {
 
 export { weatherbit }
 
-const returnDates = (element) => {
+const returnDates = (element, month, day) => {
 
     let wantedDate = document.getElementById(element);
     let arr = [];
@@ -23,10 +23,13 @@ const returnDates = (element) => {
         arr.push(wantedDate.value[i]);
     }
 
-    let month = arr.slice(0, 1);
-    let day = arr.slice(3, 4);
+    let newMonth = arr.slice(0, 1);
+    let newDay = arr.slice(3, 4);
 
-    console.log("month = " + arr[] + "day = " + day);
+    month = leadingZero(newMonth);
+    day = leadingZero(newDay);
+
+    console.log("month = " + month + "day = " + day);
 }
 
 export { returnDates };
@@ -36,6 +39,10 @@ const leadingZero = (num) => {
     if (num.length === 1) {
         let numString = num.toString();
         let newNum = "0" + numString;
+        console.log(newNum);
+        return newNum;
+    } else {
+        console.log(num);
+        return num;
     }
-    console.log(newNum);
 }
