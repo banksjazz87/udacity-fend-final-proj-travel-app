@@ -10,8 +10,8 @@ let newOptions = {
     state: '',
     lat: '',
     long: '',
-    startDay: '',
-    startMonth: '',
+    startDay: '7',
+    startMonth: '12',
     endDay: '',
     endMonth: ''
 }

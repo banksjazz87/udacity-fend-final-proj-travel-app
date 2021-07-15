@@ -14,22 +14,22 @@ const weatherbit = async(key, lat, long) => {
 
 export { weatherbit }
 
-const returnDates = (element, month, day) => {
+const returnDates = (element) => {
 
     let wantedDate = document.getElementById(element);
     let arr = [];
 
-    for (let i = 0; i <= 5; i++) {
+    for (let i = 0; i < wantedDate.value.length; i++) {
         arr.push(wantedDate.value[i]);
     }
 
-    let newMonth = arr.slice(0, 1);
-    let newDay = arr.slice(3, 4);
+    let newMonth = arr.slice(5, 7);
+    let newDay = arr.slice(8, 10);
 
-    month = leadingZero(newMonth);
-    day = leadingZero(newDay);
+    let month = leadingZero(newMonth);
+    let day = leadingZero(newDay);
 
-    console.log("month = " + month + "day = " + day);
+    console.log("Newmonth = " + newMonth.join('') + "Newday = " + newDay.join(''));
 }
 
 export { returnDates };
