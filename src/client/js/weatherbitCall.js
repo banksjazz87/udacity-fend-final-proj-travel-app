@@ -26,23 +26,7 @@ const returnDates = (element) => {
     let newMonth = arr.slice(5, 7);
     let newDay = arr.slice(8, 10);
 
-    let month = leadingZero(newMonth);
-    let day = leadingZero(newDay);
-
     console.log("Newmonth = " + newMonth.join('') + "Newday = " + newDay.join(''));
 }
 
 export { returnDates };
-
-const leadingZero = (num) => {
-
-    if (num.length === 1) {
-        let numString = num.toString();
-        let newNum = "0" + numString;
-        console.log(newNum);
-        return newNum;
-    } else {
-        console.log(num);
-        return num;
-    }
-}
