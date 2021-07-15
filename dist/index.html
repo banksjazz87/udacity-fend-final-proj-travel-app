@@ -15,4 +15,8 @@
         e.preventDefault();
         MyLib.returnDates("start_date");
         console.log(MyLib.newOptions.startMonth, MyLib.newOptions.startDay)
-    });</script></html>
+    });
+
+    //This function is an event listener for anytime the user updates the start date, it will update the newOptions object.
+
+    MyLib.startDate("start_date");</script></html>

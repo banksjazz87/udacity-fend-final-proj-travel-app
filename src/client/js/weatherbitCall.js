@@ -14,19 +14,23 @@ const weatherbit = async(key, lat, long) => {
 
 export { weatherbit }
 
-const returnDates = (element) => {
+
+//This function is an event listener on the start date input, and sets the newOptions object to the new values, set by the user
+
+const startDate = (element) => {
 
     let wantedDate = document.getElementById(element);
-    let arr = [];
 
-    for (let i = 0; i < wantedDate.value.length; i++) {
-        arr.push(wantedDate.value[i]);
-    }
+    wantedDate.addEventListener('change', () => {
 
-    let newMonth = arr.slice(5, 7);
-    let newDay = arr.slice(8, 10);
+        //Set the start month
+        MyLib.newOptions.startMonth = wantedDate.value[5] + wantedDate.value[6];
 
-    console.log("Newmonth = " + newMonth.join('') + "Newday = " + newDay.join(''));
+        //Set the start day
+        MyLib.newOptions.startDay = wantedDate.value[8] + wantedDate.value[9];
+
+        console.log(MyLib.newOptions);
+    });
 }
 
-export { returnDates };
+export { startDate };
