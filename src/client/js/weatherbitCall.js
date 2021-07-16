@@ -1,8 +1,8 @@
 //Fetch call for the weatherbit api
 
-const weatherbit = async(key, lat, long, startMonth, startDay, endMonth, endDay) => {
+const weatherbit = (key, lat, long, startMonth, startDay, endMonth, endDay) => {
 
-    const response = await fetch("https://api.weatherbit.io/v2.0/normals?lat=" + lat + "&lon=" + long + "&start_day=+" + startMonth + startDay + "&end_day=" + endMonth + endDay + "&tp=daily&key=" + key);
+    /*const response = await fetch("https://api.weatherbit.io/v2.0/normals?lat=" + lat + "&lon=" + long + "&start_day=+" + startMonth + startDay + "&end_day=" + endMonth + endDay + "&tp=daily&key=" + key);
 
     try {
         const data = await response.json();
@@ -10,7 +10,8 @@ const weatherbit = async(key, lat, long, startMonth, startDay, endMonth, endDay)
         console.log(data);
     } catch (error) {
         console.log('error', error);
-    }
+    }*/
+    console.log("https://api.weatherbit.io/v2.0/normals?lat=" + lat + "&lon=" + long + "&start_day=+" + startMonth + startDay + "&end_day=" + endMonth + endDay + "&tp=daily&key=" + key)
 }
 
 export { weatherbit }
