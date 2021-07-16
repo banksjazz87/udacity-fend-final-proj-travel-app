@@ -11,7 +11,7 @@ const weatherbit = (key, lat, long, startMonth, startDay, endMonth, endDay) => {
     } catch (error) {
         console.log('error', error);
     }*/
-    console.log("https://api.weatherbit.io/v2.0/normals?lat=" + lat + "&lon=" + long + "&start_day=+" + startMonth + startDay + "&end_day=" + endMonth + endDay + "&tp=daily&key=" + key)
+    console.log("https://api.weatherbit.io/v2.0/normals?lat=" + lat + "&lon=" + long + "&start_day=" + startMonth + startDay + "&end_day=" + endMonth + endDay + "&tp=daily&key=" + key)
 }
 
 export { weatherbit }
