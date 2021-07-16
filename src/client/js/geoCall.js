@@ -10,8 +10,8 @@ let newOptions = {
     state: '',
     lat: '',
     long: '',
-    startDay: '7',
-    startMonth: '12',
+    startDay: '',
+    startMonth: '',
     endDay: '',
     endMonth: ''
 }
@@ -33,15 +33,20 @@ const geonamesApi = async(key) => {
         console.log(res.geonames);
         for (let i = 0; i < res.geonames.length; i++) {
 
-            newOptions = {
-                key: i,
-                place: Object.values(res.geonames[i].toponymName).join(''),
-                state: Object.values(res.geonames[i].adminName1).join(''),
-                country: Object.values(res.geonames[i].countryName).join(''),
-                lat: Object.values(res.geonames[i].lat).join(''),
-                long: Object.values(res.geonames[i].lng).join('')
-            }
-            currentOptions.push(newOptions);
+
+            newOptions.key = i,
+
+                newOptions.place = Object.values(res.geonames[i].toponymName).join(''),
+
+                newOptions.state = Object.values(res.geonames[i].adminName1).join(''),
+
+                newOptions.country = Object.values(res.geonames[i].countryName).join(''),
+
+                newOptions.lat = Object.values(res.geonames[i].lat).join(''),
+
+                newOptions.long = Object.values(res.geonames[i].lng).join(''),
+
+                currentOptions.push(newOptions);
         }
         console.log('current options = ', currentOptions)
         console.log('newOptions = ', newOptions);

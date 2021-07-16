@@ -10,13 +10,11 @@
     const clearButton = document.getElementById('clear');
 
     clearButton.addEventListener('click', (e) => {
-        /*e.preventDefault();
-        MyLib.clearOptions();*/
         e.preventDefault();
-        MyLib.returnDates("start_date");
-        console.log(MyLib.newOptions.startMonth, MyLib.newOptions.startDay)
+        MyLib.clearOptions();
     });
 
-    //This function is an event listener for anytime the user updates the start date, it will update the newOptions object.
 
-    MyLib.startDate("start_date");</script></html>
+    //This functions are event listeners for anytime the user updates the start and or end date, they will update the newOptions object.
+    MyLib.startDate("start_date");
+    MyLib.endDate("end_date");</script></html>

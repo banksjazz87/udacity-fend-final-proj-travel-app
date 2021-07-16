@@ -7,6 +7,7 @@ import { weatherbit } from './js/weatherbitCall.js'
 import { startDate } from './js/weatherbitCall.js'
 import { newOptions } from './js/geoCall.js'
 import { currentOptions } from './js/geoCall.js'
+import { endDate } from './js/weatherbitCall.js'
 import './styles/style.scss'
 
 
@@ -19,6 +20,7 @@ export {
     displayedGeo,
     weatherbit,
     startDate,
+    endDate,
     newOptions,
     currentOptions
 }
