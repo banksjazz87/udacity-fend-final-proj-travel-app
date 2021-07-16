@@ -26,8 +26,10 @@
     </form>
     <div id="select_location"></div>
 
-    <div id="output_container">
-    </div>
+    <div id="output_container"></div>
+
+    <div id="weather"></div>
+
 </body>
 <script src="/dist/main.js"></script>
 <script>
@@ -37,6 +39,15 @@
         MyLib.clearOptions();
         MyLib.keysInfo()
             .then(data => MyLib.geonamesApi(data.geonames))
+            .then(data =>
+                MyLib.weatherbit(
+                    data.weatherbit,
+                    MyLib.newOptions.lat,
+                    MyLib.newOptions.long,
+                    MyLib.newOptions.startMonth,
+                    MyLib.newOptions.startDay,
+                    MyLib.newOptions.endMonth,
+                    MyLib.newOptions.endDay))
     });
 
     //This event listener will clear the current options menu

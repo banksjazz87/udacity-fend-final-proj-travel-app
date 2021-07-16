@@ -1,13 +1,12 @@
-import { newOptions } from "./geoCall";
+//Fetch call for the weatherbit api
 
-const weatherbit = async(key, lat, long) => {
-    let start = document.getElementById('start_date');
-    let end = document.getElementById('end_date');
+const weatherbit = async(key, lat, long, startMonth, startDay, endMonth, endDay) => {
 
-    const response = await fetch("https://api.weatherbit.io/v2.0/normals?lat=" + lat + "&lon=" + long + "&start_day=+" + start + "&end_day=" + end + "&tp=daily&key=" + key);
+    const response = await fetch("https://api.weatherbit.io/v2.0/normals?lat=" + lat + "&lon=" + long + "&start_day=+" + startMonth + startDay + "&end_day=" + endMonth + endDay + "&tp=daily&key=" + key);
 
     try {
         const data = await response.json();
+        updateWeather(data);
         console.log(data);
     } catch (error) {
         console.log('error', error);
@@ -15,6 +14,17 @@ const weatherbit = async(key, lat, long) => {
 }
 
 export { weatherbit }
+
+//Update the UI with the weather info
+
+const updateWeather = (current) => {
+    const container = document.getElementById('weather');
+
+    const output = document.createElement('h1');
+    output.textContent = current;
+
+    container.appendChild('output');
+}
 
 
 //This function is an event listener on the start date input, and sets the newOptions object to the new values, set by the user
