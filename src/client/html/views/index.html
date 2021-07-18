@@ -16,12 +16,14 @@
     <form>
         <label>Destination</label>
         <input id="destination" placeholder="Destination" type="text" />
+        <div id="select_location"></div>
+        <button id="search" type="button">Search Locations</button>
         <label>Start Date</label>
         <input id="start_date" type="date" />
         <label>End Date</label>
         <input id="end_date" type="date" />
         <br/>
-        <button id="enter" type="button">Enter</button>
+        <button id="submit" type="button">Submit</button>
         <button id="clear" type="clear">Clear</button>
     </form>
     <div id="select_location"></div>
@@ -33,9 +35,10 @@
 </body>
 <script src="/dist/main.js"></script>
 <script>
-    const button = document.getElementById('enter');
+    const button = document.getElementById('search');
 
-    button.addEventListener('click', () => {
+    button.addEventListener('click', (e) => {
+        e.preventDefault();
         MyLib.clearOptions();
         MyLib.keysInfo()
             /*.then(data =>
@@ -58,10 +61,19 @@
         MyLib.clearOptions();
     });
 
+    //Provides a list of available locations on input
+    const destInput = document.getElementById('destination');
 
-    //This functions are event listeners for anytime the user updates the start and or end date, they will update the newOptions object.
-    // MyLib.startDate("start_date");
-    //MyLib.endDate("end_date");
+    destInput.addEventListener('input', () => {
+                MyLib.clearOptions();
+                MyLib.keysInfo();
+            }
+
+            //MyLib.keysInfo());
+
+            //This functions are event listeners for anytime the user updates the start and or end date, they will update the newOptions object.
+            // MyLib.startDate("start_date");
+            //MyLib.endDate("end_date");
 </script>
 
 </html>

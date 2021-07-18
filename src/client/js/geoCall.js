@@ -97,18 +97,13 @@ const displayedGeo = (data) => {
             MyLib.startDate('start_date');
         MyLib.endDate('end_date');
 
+        //Clear and then update the value of the main array.
         currentOptions = [];
         currentOptions.push(newOptions);
-        //currentOptions = currentOptions.push(Object.entries(newOptions));
-
 
         console.log("!!!!! CHOICE RESULTS = ", choiceResults);
         console.log("!!!!!XXX!!! New Options!", newOptions);
         console.log("/***** updated array******/", currentOptions);
-
-        console.log('lat = ' + choiceResults.lat + ' long = ' + choiceResults.long);
-        console.log("all choice " + Object.entries(choiceResults));
-        console.log(currentOptions.lat, currentOptions.long, currentOptions.key, currentOptions.key)
 
         MyLib.postData("http://localhost:3080/currentUserData", { key: currentOptions.key, place: currentOptions.place, state: currentOptions.state, country: currentOptions.country, lat: currentOptions.lat, long: currentOptions.long, date: "" })
     })
