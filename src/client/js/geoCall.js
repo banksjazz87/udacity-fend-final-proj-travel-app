@@ -98,7 +98,8 @@ const displayedGeo = (data) => {
         MyLib.endDate('end_date');
 
         currentOptions = [];
-        currentOptions = currentOptions.push(Object.entries(newOptions));
+        currentOptions.push(newOptions);
+        //currentOptions = currentOptions.push(Object.entries(newOptions));
 
 
         console.log("!!!!! CHOICE RESULTS = ", choiceResults);
