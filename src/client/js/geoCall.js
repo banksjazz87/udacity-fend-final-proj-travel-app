@@ -87,12 +87,28 @@ const displayedGeo = (data) => {
 
         let choiceResults = currentOptions[arr.join('') - 1]
 
-        //Change value of the main holding array
-        currentOptions = choiceResults;
+        //Change value of the main object
+        newOptions.key = choiceResults.key,
+            newOptions.place = choiceResults.place,
+            newOptions.state = choiceResults.state,
+            newOptions.country = choiceResults.country,
+            newOptions.lat = choiceResults.lat,
+            newOptions.long = choiceResults.long,
+            MyLib.startDate('start_date');
+        MyLib.endDate('end_date');
+
+        currentOptions = [];
+        currentOptions = currentOptions.push(Object.entries(newOptions));
+
+
+        console.log("!!!!! CHOICE RESULTS = ", choiceResults);
+        console.log("!!!!!XXX!!! New Options!", newOptions);
+        console.log("/***** updated array******/", currentOptions);
 
         console.log('lat = ' + choiceResults.lat + ' long = ' + choiceResults.long);
         console.log("all choice " + Object.entries(choiceResults));
         console.log(currentOptions.lat, currentOptions.long, currentOptions.key, currentOptions.key)
+
         MyLib.postData("http://localhost:3080/currentUserData", { key: currentOptions.key, place: currentOptions.place, state: currentOptions.state, country: currentOptions.country, lat: currentOptions.lat, long: currentOptions.long, date: "" })
     })
 }

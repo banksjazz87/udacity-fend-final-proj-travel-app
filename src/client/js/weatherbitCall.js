@@ -2,6 +2,8 @@
 
 const weatherbit = (key, lat, long, startMonth, startDay, endMonth, endDay) => {
 
+    MyLib.startDate("start_date");
+    MyLib.endDate("end_date");
     /*const response = await fetch("https://api.weatherbit.io/v2.0/normals?lat=" + lat + "&lon=" + long + "&start_day=+" + startMonth + startDay + "&end_day=" + endMonth + endDay + "&tp=daily&key=" + key);
 
     try {
@@ -34,16 +36,16 @@ const startDate = (element) => {
 
     let wantedDate = document.getElementById(element);
 
-    wantedDate.addEventListener('change', () => {
+    //wantedDate.addEventListener('change', () => {
 
-        //Set the start month value
-        MyLib.newOptions.startMonth = wantedDate.value[5] + wantedDate.value[6];
+    //Set the start month value
+    MyLib.newOptions.startMonth = wantedDate.value[5] + wantedDate.value[6];
 
-        //Set the start day value
-        MyLib.newOptions.startDay = wantedDate.value[8] + wantedDate.value[9];
+    //Set the start day value
+    MyLib.newOptions.startDay = wantedDate.value[8] + wantedDate.value[9];
 
-        console.log(MyLib.newOptions);
-    });
+    console.log('new options with dates =', MyLib.newOptions);
+    //});
 }
 
 export { startDate };
@@ -52,16 +54,16 @@ export { startDate };
 const endDate = (element) => {
 
     let wantedDate = document.getElementById(element);
-    wantedDate.addEventListener('change', () => {
+    //wantedDate.addEventListener('change', () => {
 
-        //sets the endMonth value
-        MyLib.newOptions.endMonth = wantedDate.value[5] + wantedDate.value[6];
+    //sets the endMonth value
+    MyLib.newOptions.endMonth = wantedDate.value[5] + wantedDate.value[6];
 
-        //sets the end day value
-        MyLib.newOptions.endDay = wantedDate.value[8] + wantedDate.value[9];
+    //sets the end day value
+    MyLib.newOptions.endDay = wantedDate.value[8] + wantedDate.value[9];
 
-        console.log(MyLib.newOptions);
-    })
+    console.log("newOptions with endDate =", MyLib.newOptions);
+    //})
 }
 
 export { endDate };
