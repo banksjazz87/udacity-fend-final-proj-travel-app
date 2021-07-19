@@ -113,11 +113,11 @@ const displayedGeo = (data) => {
             newOptions.country = choiceResults.country,
             newOptions.lat = choiceResults.lat,
             newOptions.long = choiceResults.long,
-            MyLib.startDate('start_date');
-        MyLib.endDate('end_date');
+            /*MyLib.startDate('start_date');
+        MyLib.endDate('end_date');*/
 
-        //Clear and then update the value of the main array.
-        currentOptions = [];
+            //Clear and then update the value of the main array.
+            currentOptions = [];
         currentOptions.push(newOptions);
 
         console.log("!!!!! CHOICE RESULTS = ", choiceResults);
@@ -140,3 +140,22 @@ const clearOptions = () => {
 }
 
 export { clearOptions }
+
+//function for the submit button
+const submitBttn = document.getElementById('submit');
+
+submitBttn.addEventListener('click', (e) => {
+    e.preventDefault();
+    /*MyLib.startDate('start_date');
+    MyLib.endDate('end_date');
+    console.log(MyLib.newOptions);*/
+    MyLib.weatherbit(
+        data.weatherbit,
+        MyLib.newOptions.lat,
+        MyLib.newOptions.long,
+        MyLib.newOptions.startMonth,
+        MyLib.newOptions.startDay,
+        MyLib.newOptions.endMonth,
+        MyLib.newOptions.endDay)
+
+})

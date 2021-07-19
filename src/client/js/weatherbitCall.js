@@ -44,7 +44,7 @@ const startDate = (element) => {
     //Set the start day value
     MyLib.newOptions.startDay = wantedDate.value[8] + wantedDate.value[9];
 
-    console.log('new options with dates =', MyLib.newOptions);
+    //console.log('new options with dates =', MyLib.newOptions);
     //});
 }
 
@@ -62,7 +62,7 @@ const endDate = (element) => {
     //sets the end day value
     MyLib.newOptions.endDay = wantedDate.value[8] + wantedDate.value[9];
 
-    console.log("newOptions with endDate =", MyLib.newOptions);
+    //console.log("newOptions with endDate =", MyLib.newOptions);
     //})
 }
 
