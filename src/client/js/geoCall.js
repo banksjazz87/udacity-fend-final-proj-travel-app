@@ -18,6 +18,25 @@ let newOptions = {}
 
 export { newOptions }
 
+//Function to get the geoNames info after getting the keysInfo
+const returnGeo = () => {
+
+    const searchButton = document.getElementById('search');
+    searchButton.addEventListener('click', async() => {
+        MyLib.clearOptions();
+        let response = await fetch("http://localhost:3080/keyData");
+
+        try {
+            const res = await (response.json());
+            MyLib.geonamesApi(res.geonames)
+
+        } catch (e) {
+            console.log("error", e)
+        }
+    })
+}
+export { returnGeo }
+
 //A generic function to return the various api information
 const geonamesApi = async(key) => {
     let currentValue = document.getElementById('destination');

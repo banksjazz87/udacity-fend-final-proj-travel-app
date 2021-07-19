@@ -16,8 +16,8 @@
     <form>
         <label>Destination</label>
         <input id="destination" placeholder="Destination" type="text" />
+        <button id="search" type="button">Search</button>
         <div id="select_location"></div>
-        <button id="search" type="button">Search Locations</button>
         <label>Start Date</label>
         <input id="start_date" type="date" />
         <label>End Date</label>
@@ -35,7 +35,11 @@
 </body>
 <script src="/dist/main.js"></script>
 <script>
-    const button = document.getElementById('search');
+    //Event listener added to the search button
+    MyLib.returnGeo();
+
+    //Functions added to the submit button
+    const button = document.getElementById('submit');
 
     button.addEventListener('click', (e) => {
         e.preventDefault();
@@ -62,18 +66,18 @@
     });
 
     //Provides a list of available locations on input
-    const destInput = document.getElementById('destination');
+    /*const destInput = document.getElementById('destination');
 
-    destInput.addEventListener('input', () => {
-                MyLib.clearOptions();
-                MyLib.keysInfo();
-            }
+    destInput.addEventListener('input', (e) => {
+        MyLib.clearOptions();
+        MyLib.keysInfo();
+    })*/
 
-            //MyLib.keysInfo());
+    //MyLib.keysInfo());
 
-            //This functions are event listeners for anytime the user updates the start and or end date, they will update the newOptions object.
-            // MyLib.startDate("start_date");
-            //MyLib.endDate("end_date");
+    //This functions are event listeners for anytime the user updates the start and or end date, they will update the newOptions object.
+    // MyLib.startDate("start_date");
+    //MyLib.endDate("end_date");
 </script>
 
 </html>

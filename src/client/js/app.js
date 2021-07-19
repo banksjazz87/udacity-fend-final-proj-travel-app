@@ -3,7 +3,6 @@ async function keysInfo() {
     try {
         const res = await (response.json());
         //return res;
-        MyLib.geonamesApi(res.geonames)
         MyLib.weatherbit(
             res.weatherbit,
             MyLib.newOptions.lat,

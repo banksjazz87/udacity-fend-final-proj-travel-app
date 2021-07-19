@@ -1,4 +1,8 @@
-<!doctype html><html><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><title></title><meta name="description" content=""><meta name="viewport" content="width=device-width,initial-scale=1"><script defer="defer" src="main.js"></script><link href="main.css" rel="stylesheet"></head><body><h1>Travel Application</h1><form><label>Destination</label> <input id="destination" placeholder="Destination"/><div id="select_location"></div><button id="search" type="button">Search Locations</button> <label>Start Date</label> <input id="start_date" type="date"/> <label>End Date</label> <input id="end_date" type="date"/><br/><button id="submit" type="button">Submit</button> <button id="clear" type="clear">Clear</button></form><div id="select_location"></div><div id="output_container"></div><div id="weather"></div></body><script src="/dist/main.js"></script><script>const button = document.getElementById('search');
+<!doctype html><html><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><title></title><meta name="description" content=""><meta name="viewport" content="width=device-width,initial-scale=1"><script defer="defer" src="main.js"></script><link href="main.css" rel="stylesheet"></head><body><h1>Travel Application</h1><form><label>Destination</label> <input id="destination" placeholder="Destination"/> <button id="search" type="button">Search</button><div id="select_location"></div><label>Start Date</label> <input id="start_date" type="date"/> <label>End Date</label> <input id="end_date" type="date"/><br/><button id="submit" type="button">Submit</button> <button id="clear" type="clear">Clear</button></form><div id="select_location"></div><div id="output_container"></div><div id="weather"></div></body><script src="/dist/main.js"></script><script>//Event listener added to the search button
+    MyLib.returnGeo();
+
+    //Functions added to the submit button
+    const button = document.getElementById('submit');
 
     button.addEventListener('click', (e) => {
         e.preventDefault();
@@ -25,14 +29,12 @@
     });
 
     //Provides a list of available locations on input
-    const destInput = document.getElementById('destination');
+    /*const destInput = document.getElementById('destination');
 
-    destInput.addEventListener('input', () => {
-        setTimeout(() => {
-            MyLib.clearOptions();
-            MyLib.keysInfo();
-        }, 200)
-    });
+    destInput.addEventListener('input', (e) => {
+        MyLib.clearOptions();
+        MyLib.keysInfo();
+    })*/
 
     //MyLib.keysInfo());
 
