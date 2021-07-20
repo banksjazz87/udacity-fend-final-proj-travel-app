@@ -22,7 +22,11 @@ export { newOptions }
 const returnGeo = () => {
 
     const searchButton = document.getElementById('search');
-    searchButton.addEventListener('click', async() => {
+    searchButton.addEventListener('click', () => {
+        MyLib.keysInfo()
+            .then(data => MyLib.geonamesApi(data.geonames))
+    });
+    /*async() => {
         MyLib.clearOptions();
         let response = await fetch("http://localhost:3080/keyData");
 
@@ -34,6 +38,7 @@ const returnGeo = () => {
             console.log("error", e)
         }
     })
+}*/
 }
 export { returnGeo }
 
@@ -156,7 +161,13 @@ submitBttn.addEventListener('click', (e) => {
         MyLib.newOptions.startDay,
         MyLib.newOptions.endMonth,
         MyLib.newOptions.endDay)*/
-    MyLib.keysInfo();
-
+    MyLib.keysInfo()
+        .then(data => MyLib.weatherbit(
+            data.weatherbit,
+            MyLib.newOptions.lat,
+            MyLib.newOptions.long,
+            MyLib.newOptions.startDate,
+            MyLib.newOptions.endDate
+        ))
 
 })

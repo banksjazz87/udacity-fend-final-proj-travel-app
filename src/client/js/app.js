@@ -3,12 +3,12 @@ async function keysInfo() {
     try {
         const res = await (response.json());
         //return res;
-        MyLib.weatherbit(
-            res.weatherbit,
-            MyLib.newOptions.lat,
-            MyLib.newOptions.long,
-            MyLib.newOptions.startDate,
-            MyLib.newOptions.endDate)
+        /* MyLib.weatherbit(
+             res.weatherbit,
+             MyLib.newOptions.lat,
+             MyLib.newOptions.long,
+             MyLib.newOptions.startDate,
+             MyLib.newOptions.endDate)*/
     } catch (e) {
         console.log("error", e)
     }
