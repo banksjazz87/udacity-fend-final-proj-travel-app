@@ -146,9 +146,8 @@ const submitBttn = document.getElementById('submit');
 
 submitBttn.addEventListener('click', (e) => {
     e.preventDefault();
-    /*MyLib.startDate('start_date');
+    MyLib.startDate('start_date');
     MyLib.endDate('end_date');
-    console.log(MyLib.newOptions);*/
     /*MyLib.weatherbit(
         data.weatherbit,
         MyLib.newOptions.lat,
@@ -158,5 +157,6 @@ submitBttn.addEventListener('click', (e) => {
         MyLib.newOptions.endMonth,
         MyLib.newOptions.endDay)*/
     MyLib.keysInfo();
+
 
 })

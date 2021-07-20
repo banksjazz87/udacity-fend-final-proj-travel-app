@@ -2,9 +2,9 @@
 
 const weatherbit = async(key, lat, long, start, end) => {
 
-    MyLib.startDate("start_date");
-    MyLib.endDate("end_date");
-    const response = await fetch("https://api.weatherbit.io/v2.0/normals?lat=" + lat + "&lon=" + long + "&start_day=" + start + "&end_day=" + end + "&tp=daily&key=" + key);
+    /*MyLib.startDate("start_date");
+    MyLib.endDate("end_date");*/
+    const response = await fetch("https://api.weatherbit.io/v2.0/normals?lat=" + lat + "&lon=" + long + "&start_day=" + start + "&end_day=" + end + "&units=I&tp=daily&key=" + key);
 
     try {
         const data = await response.json();
@@ -52,23 +52,17 @@ const startDate = (element) => {
 
 export { startDate };
 
-//This function will set the endMonth and endDay values for the newOptions object
+//This function will set the endMonth and endDay values for the newOptions object, along with an end date that joins both the endMonth with the endDay with a hyphen.
 const endDate = (element) => {
 
     let wantedDate = document.getElementById(element);
-    //wantedDate.addEventListener('change', () => {
 
-    //sets the endMonth value
     MyLib.newOptions.endMonth = wantedDate.value[5] + wantedDate.value[6];
 
-    //sets the end day value
     MyLib.newOptions.endDay = wantedDate.value[8] + wantedDate.value[9];
 
-    //Joins the month and day together with a hyphen
     MyLib.newOptions.endDate = MyLib.newOptions.endMonth + '-' + MyLib.newOptions.endDay;
 
-    //console.log("newOptions with endDate =", MyLib.newOptions);
-    //})
 }
 
 export { endDate };
