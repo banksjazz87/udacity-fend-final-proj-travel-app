@@ -7,10 +7,8 @@ async function keysInfo() {
             res.weatherbit,
             MyLib.newOptions.lat,
             MyLib.newOptions.long,
-            MyLib.newOptions.startMonth,
-            MyLib.newOptions.startDay,
-            MyLib.newOptions.endMonth,
-            MyLib.newOptions.endDay)
+            MyLib.newOptions.startDate,
+            MyLib.newOptions.endDate)
     } catch (e) {
         console.log("error", e)
     }

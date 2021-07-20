@@ -149,13 +149,14 @@ submitBttn.addEventListener('click', (e) => {
     /*MyLib.startDate('start_date');
     MyLib.endDate('end_date');
     console.log(MyLib.newOptions);*/
-    MyLib.weatherbit(
+    /*MyLib.weatherbit(
         data.weatherbit,
         MyLib.newOptions.lat,
         MyLib.newOptions.long,
         MyLib.newOptions.startMonth,
         MyLib.newOptions.startDay,
         MyLib.newOptions.endMonth,
-        MyLib.newOptions.endDay)
+        MyLib.newOptions.endDay)*/
+    MyLib.keysInfo();
 
 })

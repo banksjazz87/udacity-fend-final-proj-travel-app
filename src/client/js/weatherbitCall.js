@@ -1,19 +1,19 @@
 //Fetch call for the weatherbit api
 
-const weatherbit = (key, lat, long, startMonth, startDay, endMonth, endDay) => {
+const weatherbit = async(key, lat, long, start, end) => {
 
     MyLib.startDate("start_date");
     MyLib.endDate("end_date");
-    /*const response = await fetch("https://api.weatherbit.io/v2.0/normals?lat=" + lat + "&lon=" + long + "&start_day=+" + startMonth + startDay + "&end_day=" + endMonth + endDay + "&tp=daily&key=" + key);
+    const response = await fetch("https://api.weatherbit.io/v2.0/normals?lat=" + lat + "&lon=" + long + "&start_day=" + start + "&end_day=" + end + "&tp=daily&key=" + key);
 
     try {
         const data = await response.json();
-        updateWeather(data);
+        //updateWeather(data);
         console.log(data);
     } catch (error) {
         console.log('error', error);
-    }*/
-    console.log("https://api.weatherbit.io/v2.0/normals?lat=" + lat + "&lon=" + long + "&start_day=" + startMonth + startDay + "&end_day=" + endMonth + endDay + "&tp=daily&key=" + key)
+    }
+    //console.log("https://api.weatherbit.io/v2.0/normals?lat=" + lat + "&lon=" + long + "&start_day=" + startMonth + startDay + "&end_day=" + endMonth + endDay + "&tp=daily&key=" + key)
 }
 
 export { weatherbit }
@@ -44,6 +44,8 @@ const startDate = (element) => {
     //Set the start day value
     MyLib.newOptions.startDay = wantedDate.value[8] + wantedDate.value[9];
 
+    //Joins the start month and day together with a hyphen
+    MyLib.newOptions.startDate = MyLib.newOptions.startMonth + '-' + MyLib.newOptions.startDay;
     //console.log('new options with dates =', MyLib.newOptions);
     //});
 }
@@ -61,6 +63,9 @@ const endDate = (element) => {
 
     //sets the end day value
     MyLib.newOptions.endDay = wantedDate.value[8] + wantedDate.value[9];
+
+    //Joins the month and day together with a hyphen
+    MyLib.newOptions.endDate = MyLib.newOptions.endMonth + '-' + MyLib.newOptions.endDay;
 
     //console.log("newOptions with endDate =", MyLib.newOptions);
     //})
