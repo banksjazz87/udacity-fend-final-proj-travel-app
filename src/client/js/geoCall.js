@@ -23,6 +23,7 @@ const returnGeo = () => {
 
     const searchButton = document.getElementById('search');
     searchButton.addEventListener('click', () => {
+        MyLib.clearOptions();
         MyLib.keysInfo()
             .then(data => MyLib.geonamesApi(data.geonames))
     });

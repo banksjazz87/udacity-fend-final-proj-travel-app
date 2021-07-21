@@ -2,7 +2,7 @@ async function keysInfo() {
     let response = await fetch("http://localhost:3080/keyData");
     try {
         const res = await (response.json());
-        //return res;
+        return res;
         /* MyLib.weatherbit(
              res.weatherbit,
              MyLib.newOptions.lat,

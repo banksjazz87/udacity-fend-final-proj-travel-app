@@ -36,18 +36,12 @@ const startDate = (element) => {
 
     let wantedDate = document.getElementById(element);
 
-    //wantedDate.addEventListener('change', () => {
-
-    //Set the start month value
     MyLib.newOptions.startMonth = wantedDate.value[5] + wantedDate.value[6];
 
-    //Set the start day value
     MyLib.newOptions.startDay = wantedDate.value[8] + wantedDate.value[9];
 
-    //Joins the start month and day together with a hyphen
     MyLib.newOptions.startDate = MyLib.newOptions.startMonth + '-' + MyLib.newOptions.startDay;
-    //console.log('new options with dates =', MyLib.newOptions);
-    //});
+
 }
 
 export { startDate };
