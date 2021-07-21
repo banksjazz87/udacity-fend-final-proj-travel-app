@@ -14,17 +14,26 @@
     <h1>Travel Application</h1>
 
     <form>
+
         <label>Destination</label>
         <input id="destination" placeholder="Destination" type="text" />
-        <button id="search" type="button">Search</button>
+        <button id="search" type="button"> Search </button>
+
         <div id="select_location"></div>
-        <label>Start Date</label>
-        <input id="start_date" type="date" />
-        <label>End Date</label>
-        <input id="end_date" type="date" />
-        <br/>
-        <button id="submit" type="button">Submit</button>
-        <button id="clear" type="clear">Clear</button>
+
+        <div id="date_input" style="display: none">
+
+            <label>Start Date</label>
+            <input id="start_date" type="date" />
+
+            <label>End Date</label>
+            <input id="end_date" type="date" />
+
+            <br/>
+            <button id="submit" type="button">Submit</button>
+            <button id="clear" type="clear">Clear</button>
+
+        </div>
     </form>
     <div id="select_location"></div>
 
@@ -38,23 +47,8 @@
     //Event listener added to the search button
     MyLib.returnGeo();
 
-    //Functions added to the submit button
-    /*const button = document.getElementById('submit');
-
-    button.addEventListener('click', (e) => {
-        e.preventDefault();
-        MyLib.keysInfo()
-            /*.then(data =>
-                MyLib.geonamesApi(data.geonames),
-                MyLib.weatherbit(
-                    data.weatherbit,
-                    MyLib.newOptions.lat,
-                    MyLib.newOptions.long,
-                    MyLib.newOptions.startMonth,
-                    MyLib.newOptions.startDay,
-                    MyLib.newOptions.endMonth,
-                    MyLib.newOptions.endDay))
-    });*/
+    //Event listener added to the submit button
+    MyLib.submitFunction();
 
     //This event listener will clear the current options menu
     const clearButton = document.getElementById('clear');
@@ -63,20 +57,6 @@
         e.preventDefault();
         MyLib.clearOptions();
     });
-
-    //Provides a list of available locations on input
-    /*const destInput = document.getElementById('destination');
-
-    destInput.addEventListener('input', (e) => {
-        MyLib.clearOptions();
-        MyLib.keysInfo();
-    })*/
-
-    //MyLib.keysInfo());
-
-    //This functions are event listeners for anytime the user updates the start and or end date, they will update the newOptions object.
-    // MyLib.startDate("start_date");
-    //MyLib.endDate("end_date");
 </script>
 
 </html>

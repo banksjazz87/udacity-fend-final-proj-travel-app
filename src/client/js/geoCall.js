@@ -97,6 +97,8 @@ const displayedGeo = (data) => {
             currentOptions = [];
         currentOptions.push(newOptions);
 
+        showDateInput();
+
         MyLib.postData("http://localhost:3080/currentUserData", { key: currentOptions.key, place: currentOptions.place, state: currentOptions.state, country: currentOptions.country, lat: currentOptions.lat, long: currentOptions.long, date: "" })
     })
 }
@@ -109,14 +111,16 @@ const clearOptions = () => {
     if (selectMenu) {
         selectMenu.remove()
     }
+
+    const dates = document.getElementById('date_input');
+    dates.style.display = 'none';
 }
 export { clearOptions }
 
-//function for the submit button
-const submitBttn = document.getElementById('submit');
+const showDateInput = () => {
+    const dates = document.getElementById('date_input');
 
-submitBttn.addEventListener('click', (e) => {
-    e.preventDefault();
-
-    MyLib.weatherCall();
-})
+    if (dates.style.display === 'none') {
+        dates.style.display = 'flex';
+    }
+}

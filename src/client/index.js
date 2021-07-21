@@ -10,6 +10,7 @@ import { currentOptions } from './js/geoCall.js'
 import { endDate } from './js/weatherbitCall.js'
 import { weatherCall } from './js/weatherbitCall.js'
 import { returnGeo } from './js/geoCall.js'
+import { submitFunction } from './js/eventListeners.js'
 import './styles/style.scss'
 
 
@@ -25,6 +26,7 @@ export {
     endDate,
     returnGeo,
     weatherCall,
+    submitFunction,
     newOptions,
     currentOptions
 }

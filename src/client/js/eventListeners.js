@@ -1,8 +1,11 @@
 //function for the submit button
-const submitBttn = document.getElementById('submit');
+const submitFunction = () => {
+    const submitBttn = document.getElementById('submit');
 
-submitBttn.addEventListener('click', (e) => {
-    e.preventDefault();
+    submitBttn.addEventListener('click', (e) => {
+        e.preventDefault();
 
-    MyLib.weatherCall();
-})
+        MyLib.weatherCall();
+    })
+}
+export { submitFunction }
