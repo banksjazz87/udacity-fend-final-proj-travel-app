@@ -4,8 +4,7 @@ const weatherbit = async(key, lat, long, start, end) => {
 
     try {
         const data = await response.json();
-        //updateWeather(data);
-        console.log(data);
+        return data;
     } catch (error) {
         console.log('error', error);
     }
@@ -57,5 +56,21 @@ const weatherCall = () => {
             MyLib.newOptions.startDate,
             MyLib.newOptions.endDate
         ))
+        .then(res => saveWeatherData(res.data.max_temp, res.data.min_temp, res.data.precip, res.data.snow, res.data))
 }
 export { weatherCall }
+
+//Updates the newObjects array
+const saveWeatherData = (high, low, precipitation, snow, arr) => {
+
+    for (let i = 0; i < arr.length; i++) {
+
+        MyLib.NewOptions.highTemp = high[i];
+        MyLib.NewOptions.lowTemp = low[i];
+        MyLib.NewOptions.precip = precipitation[i];
+        MyLib.NewOptions.snow = snow[i];
+
+        MyLib.currentOptions.push(MyLib.NewOptions);
+    }
+    console.log(MyLib.currentOptions);
+}
