@@ -5,49 +5,25 @@ export { currentOptions }
 
 //An empty object, to serve as a placeholder for the values that we want to retrieve
 let newOptions = {}
-    /*key: '',
-    place: '',
-    state: '',
-    lat: '',
-    long: '',
-    startDay: '',
-    startMonth: '',
-    endDay: '',
-    endMonth: ''
-}*/
 
 export { newOptions }
 
 //Function to get the geoNames info after getting the keysInfo
 const returnGeo = () => {
-
     const searchButton = document.getElementById('search');
+
     searchButton.addEventListener('click', () => {
         MyLib.clearOptions();
         MyLib.keysInfo()
             .then(data => MyLib.geonamesApi(data.geonames))
     });
-    /*async() => {
-        MyLib.clearOptions();
-        let response = await fetch("http://localhost:3080/keyData");
-
-        try {
-            const res = await (response.json());
-            MyLib.geonamesApi(res.geonames)
-
-        } catch (e) {
-            console.log("error", e)
-        }
-    })
-}*/
 }
 export { returnGeo }
 
-//A generic function to return the various api information
+//A function to return the geonames api information
 const geonamesApi = async(key) => {
     let currentValue = document.getElementById('destination');
-    /*let currentOptions = [];
-    let newOptions = { key: '' };*/
+
     currentOptions = [];
 
     const response = await fetch("http://api.geonames.org/searchJSON?q=" + currentValue.value + "&maxRows=20&username=" + key);
@@ -69,8 +45,6 @@ const geonamesApi = async(key) => {
 
             currentOptions.push(newOptions);
         }
-        console.log('current options = ', currentOptions)
-        console.log('newOptions = ', newOptions);
         displayedGeo(currentOptions);
     } catch (error) {
         console.log('error', error);
@@ -85,7 +59,6 @@ const displayedGeo = (data) => {
     const select = document.createElement('select');
     const selectContainer = document.getElementById('select_location');
     selectContainer.appendChild(select);
-
 
     for (let i = 0; i < data.length; i++) {
         let optionNum = i + 1;
@@ -119,21 +92,14 @@ const displayedGeo = (data) => {
             newOptions.country = choiceResults.country,
             newOptions.lat = choiceResults.lat,
             newOptions.long = choiceResults.long,
-            /*MyLib.startDate('start_date');
-        MyLib.endDate('end_date');*/
 
             //Clear and then update the value of the main array.
             currentOptions = [];
         currentOptions.push(newOptions);
 
-        console.log("!!!!! CHOICE RESULTS = ", choiceResults);
-        console.log("!!!!!XXX!!! New Options!", newOptions);
-        console.log("/***** updated array******/", currentOptions);
-
         MyLib.postData("http://localhost:3080/currentUserData", { key: currentOptions.key, place: currentOptions.place, state: currentOptions.state, country: currentOptions.country, lat: currentOptions.lat, long: currentOptions.long, date: "" })
     })
 }
-
 export { displayedGeo }
 
 //Clear past options
@@ -144,7 +110,6 @@ const clearOptions = () => {
         selectMenu.remove()
     }
 }
-
 export { clearOptions }
 
 //function for the submit button
@@ -152,23 +117,6 @@ const submitBttn = document.getElementById('submit');
 
 submitBttn.addEventListener('click', (e) => {
     e.preventDefault();
-    MyLib.startDate('start_date');
-    MyLib.endDate('end_date');
-    /*MyLib.weatherbit(
-        data.weatherbit,
-        MyLib.newOptions.lat,
-        MyLib.newOptions.long,
-        MyLib.newOptions.startMonth,
-        MyLib.newOptions.startDay,
-        MyLib.newOptions.endMonth,
-        MyLib.newOptions.endDay)*/
-    MyLib.keysInfo()
-        .then(data => MyLib.weatherbit(
-            data.weatherbit,
-            MyLib.newOptions.lat,
-            MyLib.newOptions.long,
-            MyLib.newOptions.startDate,
-            MyLib.newOptions.endDate
-        ))
 
+    MyLib.weatherCall();
 })
