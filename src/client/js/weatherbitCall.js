@@ -56,24 +56,30 @@ const weatherCall = () => {
             MyLib.newOptions.startDate,
             MyLib.newOptions.endDate
         ))
-        .then(res => saveWeatherData(res.data))
-        //(res.data.max_temp, res.data.min_temp, res.data.precip, res.data.snow, res.data))
+        .then(res => saveWeatherData('max_temp', 'min_temp', 'precip', 'snow', 'month', 'day', res.data))
 }
 export { weatherCall }
 
 //Updates the newObjects array
-const saveWeatherData = (data) => {
-    console.log(data)
-        /*(high, low, precipitation, snow, arr) => {
+const saveWeatherData = (high, low, precipitation, snow, month, day, arr) => {
 
-            for (let i = 0; i < arr.length; i++) {
+    let weatherContainer = [];
 
-                MyLib.NewOptions.highTemp = Object.values(high[i]);
-                MyLib.NewOptions.lowTemp = Object.values(low[i]);
-                MyLib.NewOptions.precip = Object.values(precipitation[i]);
-                MyLib.NewOptions.snow = Object.values(snow[i]);
+    for (let i = 0; i < arr.length; i++) {
+        let currentVal = arr[i];
 
-                MyLib.currentOptions.push(MyLib.NewOptions);
-            }
-            console.log(MyLib.currentOptions);*/
+        let weather = {
+            highTemp: currentVal[high],
+            lowTemp: currentVal[low],
+            precip: currentVal[precipitation],
+            snow: currentVal[snow],
+            day: currentVal[day],
+            month: currentVal[month]
+        }
+        weatherContainer.push(weather);
+        //MyLib.NewOptions.weatherInfo.push(weather);
+    }
+    MyLib.NewOptions.weatherInfo = weatherContainer;
+    MyLib.currentOptions.push(MyLib.NewOptions)
+    console.log(currentOptions);
 }
