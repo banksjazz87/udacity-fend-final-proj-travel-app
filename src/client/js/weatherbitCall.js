@@ -63,7 +63,8 @@ export { weatherCall }
 //Updates the newObjects array
 const saveWeatherData = (high, low, precipitation, snow, month, day, arr) => {
 
-    let weatherContainer = [];
+    //let weatherContainer = [];
+    MyLib.newOptions.weatherInfo = [];
 
     for (let i = 0; i < arr.length; i++) {
         let currentVal = arr[i];
@@ -76,10 +77,15 @@ const saveWeatherData = (high, low, precipitation, snow, month, day, arr) => {
             day: currentVal[day],
             month: currentVal[month]
         }
-        weatherContainer.push(weather);
+        MyLib.newOptions.weatherInfo.push(weather);
         //MyLib.NewOptions.weatherInfo.push(weather);
     }
-    MyLib.NewOptions.weatherInfo = weatherContainer;
-    MyLib.currentOptions.push(MyLib.NewOptions)
-    console.log(currentOptions);
+    //Push new object material to the main array
+    MyLib.currentOptions.push(MyLib.newOptions);
+
+    //Remove the previous object material from the array, to avoid unnecessary duplication
+    MyLib.currentOptions.splice(1);
+
+    console.log(MyLib.newOptions);
+    console.log(MyLib.currentOptions);
 }
