@@ -11,6 +11,7 @@ import { endDate } from './js/weatherbitCall.js'
 import { weatherCall } from './js/weatherbitCall.js'
 import { returnGeo } from './js/geoCall.js'
 import { submitFunction } from './js/eventListeners.js'
+import { pixCall } from './js/pixabayCall.js'
 import './styles/style.scss'
 
 
@@ -27,6 +28,7 @@ export {
     returnGeo,
     weatherCall,
     submitFunction,
+    pixCall,
     newOptions,
     currentOptions
 }

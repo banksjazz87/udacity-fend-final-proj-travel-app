@@ -6,6 +6,7 @@ const submitFunction = () => {
         e.preventDefault();
 
         MyLib.weatherCall();
+        MyLib.pixCall();
     })
 }
 export { submitFunction }
