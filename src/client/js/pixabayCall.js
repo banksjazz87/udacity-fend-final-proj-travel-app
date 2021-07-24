@@ -1,11 +1,11 @@
-const pixabayApi = async(key, arr) => {
+const pixabayApi = async(key, value) => {
 
-    let description = arr.join('+').toString();
+    //let description = arr.join('+').toString();
 
-    const response = await fetch("https://pixabay.com/api/?key=" + key + "&q=" + description + "&image_type=photo");
+    const response = await fetch("https://pixabay.com/api/?key=" + key + "&q=" + value + "&image_type=photo");
 
     try {
-        let data = response.json();
+        let data = await response.json();
         console.log(data);
     } catch (e) {
         console.log('error', e);
@@ -14,7 +14,7 @@ const pixabayApi = async(key, arr) => {
 
 const pixCall = () => {
     MyLib.keysInfo()
-        .then(data => pixabayApi(data.pixabay, [MyLib.newOptions.place, MyLib.newOptions.state, MyLib.newOptions.country]))
+        .then(data => pixabayApi(data.pixabay, MyLib.newOptions.place))
 }
 
 export { pixCall }

@@ -60,6 +60,11 @@ const displayedGeo = (data) => {
     const selectContainer = document.getElementById('select_location');
     selectContainer.appendChild(select);
 
+    let headerOfOptions = document.createElement('option');
+    headerOfOptions.textContent = "Please choose from one of the following...";
+    select.appendChild(headerOfOptions);
+
+
     for (let i = 0; i < data.length; i++) {
         let optionNum = i + 1;
         let place = "Location: " + Object.values(data[i].place).join('').toUpperCase();
@@ -67,6 +72,7 @@ const displayedGeo = (data) => {
         let country = "Country: " + Object.values(data[i].country).join('').toUpperCase();
 
         let options = document.createElement('option');
+
         options.textContent = optionNum + ". " + place + "  " + state + "  " + country;
 
         select.appendChild(options);
@@ -110,6 +116,8 @@ const clearOptions = () => {
 
     if (selectMenu) {
         selectMenu.remove()
+        const destinationInput = document.getElementById('destination');
+        destinationInput.value = null;
     }
 
     const dates = document.getElementById('date_input');
