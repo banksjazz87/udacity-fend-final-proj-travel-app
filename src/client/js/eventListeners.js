@@ -5,8 +5,7 @@ const submitFunction = () => {
     submitBttn.addEventListener('click', (e) => {
         e.preventDefault();
 
-        MyLib.weatherCall();
-        MyLib.pixCall();
+        Promise.all([MyLib.weatherCall(), MyLib.pixCall()])
     })
 }
 export { submitFunction }

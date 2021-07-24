@@ -110,18 +110,22 @@ const displayedGeo = (data) => {
 }
 export { displayedGeo }
 
-//Clear past options
+//Clear: past options, destination input and dates
 const clearOptions = () => {
     const selectMenu = document.querySelector('select');
 
     if (selectMenu) {
         selectMenu.remove()
+
         const destinationInput = document.getElementById('destination');
         destinationInput.value = null;
+
+        const dates = document.getElementById('date_input');
+        dates.style.display = 'none';
     }
 
-    const dates = document.getElementById('date_input');
-    dates.style.display = 'none';
+    //const dates = document.getElementById('date_input');
+    //dates.style.display = 'none';
 }
 export { clearOptions }
 
