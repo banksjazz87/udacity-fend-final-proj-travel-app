@@ -15,8 +15,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //keys for the various apis
 const keys = {
     geonames: process.env.GEONAMES_USERNAME,
+    geoUrl: process.env.GEONAMES_URL,
     weatherbit: process.env.WEATHERBIT_KEY,
-    pixabay: process.env.PIXABAY_KEY
+    weatherbitUrl: process.env.WEATHERBIT_URL,
+    pixabay: process.env.PIXABAY_KEY,
+    pixabayUrl: process.env.PIXABAY_URL
 }
 
 //console.log(process.env.GEONAMES_HOST);

@@ -1,6 +1,6 @@
 //Fetch call for the weatherbit api
-const weatherbit = async(key, lat, long, start, end) => {
-    const response = await fetch("https://api.weatherbit.io/v2.0/normals?lat=" + lat + "&lon=" + long + "&start_day=" + start + "&end_day=" + end + "&units=I&tp=daily&key=" + key);
+const weatherbit = async(key, url, lat, long, start, end) => {
+    const response = await fetch(url + lat + "&lon=" + long + "&start_day=" + start + "&end_day=" + end + "&units=I&tp=daily&key=" + key);
 
     try {
         const data = await response.json();
@@ -51,6 +51,7 @@ const weatherCall = () => {
     MyLib.keysInfo()
         .then(data => MyLib.weatherbit(
             data.weatherbit,
+            data.weatherbitUrl,
             MyLib.newOptions.lat,
             MyLib.newOptions.long,
             MyLib.newOptions.startDate,

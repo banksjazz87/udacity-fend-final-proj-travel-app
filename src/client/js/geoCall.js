@@ -15,18 +15,18 @@ const returnGeo = () => {
     searchButton.addEventListener('click', () => {
         MyLib.clearOptions();
         MyLib.keysInfo()
-            .then(data => MyLib.geonamesApi(data.geonames))
+            .then(data => MyLib.geonamesApi(data.geonames, data.geoUrl))
     });
 }
 export { returnGeo }
 
 //A function to return the geonames api information
-const geonamesApi = async(key) => {
+const geonamesApi = async(key, url) => {
     let currentValue = document.getElementById('destination');
 
     currentOptions = [];
 
-    const response = await fetch("http://api.geonames.org/searchJSON?q=" + currentValue.value + "&maxRows=20&username=" + key);
+    const response = await fetch(url + currentValue.value + "&maxRows=20&username=" + key);
 
     try {
         const res = await (response.json());
@@ -47,6 +47,7 @@ const geonamesApi = async(key) => {
         }
         displayedGeo(currentOptions);
     } catch (error) {
+        alert('Please type a more specific location and try again.')
         console.log('error', error);
     }
 }
@@ -117,8 +118,8 @@ const clearOptions = () => {
     if (selectMenu) {
         selectMenu.remove()
 
-        const destinationInput = document.getElementById('destination');
-        destinationInput.value = null;
+        // const destinationInput = document.getElementById('destination');
+        //destinationInput.value = null;
 
         const dates = document.getElementById('date_input');
         dates.style.display = 'none';
