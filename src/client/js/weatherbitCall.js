@@ -90,3 +90,21 @@ const saveWeatherData = (high, low, precipitation, snow, month, day, arr) => {
     console.log(MyLib.newOptions);
     console.log(MyLib.currentOptions);
 }
+
+//Function to return a card element that contains weather information
+const createWeatherCard = (highTemp, lowTemp, precip, snow, weatherArr) => {
+    const weatherContainer = document.getElementById('weather');
+
+    for (let i = 0; i < weatherArr.length; i++) {
+        const newCard = document.createElement('card');
+
+        const img = document.createElement('img');
+
+        if (parseFloat(weatherArr[i][precip]) > 1.9 && weatherArr[i][snow] === 0) {
+            img.src = '../assets/rain_clipartLibrary.jpeg';
+        } else if (parseFloat(weatherArr[i][precip]) < 1.9 && parseFloat(weatherArr[i][precip] > 0.1) && parseFloat(weatherArr[i][snow]) === 0) {
+            img.src = '../assets/cloudy_clipArtLibrary.jpeg';
+        }
+
+    }
+}
