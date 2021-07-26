@@ -106,11 +106,11 @@ const createWeatherCard = (month, day, high, low, precip, snow, weatherArr) => {
 
         const img = document.createElement('img');
 
-        if (parseFloat(weatherArr[i][precip]) > .9 && weatherArr[i][snow] === 0) {
+        if (parseFloat(weatherArr[i][precip]) > .1 && weatherArr[i][snow] === 0) {
 
             img.setAttribute('src', '/src/client/assets/rain_clipartLibrary.jpeg');
 
-        } else if (parseFloat(weatherArr[i][precip]) < .9 && parseFloat(weatherArr[i][precip] > 0.1) && parseFloat(weatherArr[i][snow]) === 0) {
+        } else if (parseFloat(weatherArr[i][precip]) < .1 && parseFloat(weatherArr[i][precip] > 0.01) && parseFloat(weatherArr[i][snow]) === 0) {
 
             img.setAttribute('src', 'src/client/assets/cloudy_clipArtLibrary.jpeg');
 
