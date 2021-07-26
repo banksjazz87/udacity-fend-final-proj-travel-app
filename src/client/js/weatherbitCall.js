@@ -58,7 +58,7 @@ const weatherCall = () => {
             MyLib.newOptions.endDate
         ))
         .then(res => saveWeatherData('max_temp', 'min_temp', 'precip', 'snow', 'month', 'day', res.data))
-        .then(() => createWeatherCard('month', 'day', 'high', 'low', 'precip', 'snow', MyLib.newOptions.weatherInfo))
+        .then(res => createWeatherCard('month', 'day', 'highTemp', 'lowTemp', 'precip', 'snow', res.weatherInfo))
 }
 export { weatherCall }
 
@@ -106,31 +106,31 @@ const createWeatherCard = (month, day, high, low, precip, snow, weatherArr) => {
 
         const img = document.createElement('img');
 
-        if (parseFloat(weatherArr[i][precip]) > 1.9 && weatherArr[i][snow] === 0) {
+        if (parseFloat(weatherArr[i][precip]) > .9 && weatherArr[i][snow] === 0) {
 
-            img.setAttribute('src', '../assets/rain_clipartLibrary.jpeg');
+            img.setAttribute('src', '/src/client/assets/rain_clipartLibrary.jpeg');
 
-        } else if (parseFloat(weatherArr[i][precip]) < 1.9 && parseFloat(weatherArr[i][precip] > 0.1) && parseFloat(weatherArr[i][snow]) === 0) {
+        } else if (parseFloat(weatherArr[i][precip]) < .9 && parseFloat(weatherArr[i][precip] > 0.1) && parseFloat(weatherArr[i][snow]) === 0) {
 
-            img.setAttribute('src', '../assets/cloudy_clipArtLibrary.jpeg');
+            img.setAttribute('src', 'src/client/assets/cloudy_clipArtLibrary.jpeg');
 
         } else if (parseFloat(weatherArr[i][snow]) > 0) {
 
-            img.setAttribute('src', '../assets/snow_clipartLibrary.jpeg');
+            img.setAttribute('src', 'src/client/assets/snow_clipartLibrary.jpeg');
 
         } else {
 
-            img.setAttribute('src', '../assets/sunny_clipartLibrary.jpeg');
+            img.setAttribute('src', 'src/client/assets/sunny_clipartLibrary.jpeg');
         }
 
         newCard.appendChild(img);
 
         const highParagraph = document.createElement('p');
-        p.textContent = 'High of: ' + weatherArr[i][high];
+        highParagraph.textContent = 'High of: ' + weatherArr[i][high];
         newCard.appendChild(highParagraph);
 
         const lowParagraph = document.createElement('p');
-        p.textContent = 'High of ' + weatherArr[i][low];
+        lowParagraph.textContent = 'Low of ' + weatherArr[i][low];
         newCard.appendChild(lowParagraph);
 
         weatherContainer.appendChild(newCard);
