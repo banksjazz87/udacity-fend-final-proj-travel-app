@@ -58,7 +58,7 @@ const weatherCall = () => {
             MyLib.newOptions.endDate
         ))
         .then(res => saveWeatherData('max_temp', 'min_temp', 'precip', 'snow', 'month', 'day', res.data))
-        //.then(() => createWeatherCard('month', 'day', 'high', 'low', 'precip', 'snow', MyLib.newOptions.weatherInfo))
+        .then(() => createWeatherCard('month', 'day', 'high', 'low', 'precip', 'snow', MyLib.newOptions.weatherInfo))
 }
 export { weatherCall }
 
@@ -90,6 +90,7 @@ const saveWeatherData = (high, low, precipitation, snow, month, day, arr) => {
 
     console.log(MyLib.newOptions);
     console.log(MyLib.currentOptions);
+    return MyLib.newOptions;
 }
 
 //Function to return a card element that contains weather information
