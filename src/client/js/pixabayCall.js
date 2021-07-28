@@ -3,13 +3,14 @@ const pixCall = () => {
     MyLib.keysInfo()
         .then(data => pixabayApi(data.pixabay, data.pixabayUrl, MyLib.newOptions.place))
         .then(data => checkForZero(data.totalHits))
+        //.then(data => console.log("!!!!" + data[0]))
         //.then(data => pixabayPic(data[hits][0][fullHDURL]))
 
 }
 
 export { pixCall }
 
-const pixabayApi = async(key, url, place) => {
+const pixabayApi = async(key, url, place, country) => {
 
     //let description = arr.join('+').toString();
 
@@ -29,11 +30,11 @@ const checkForZero = (value) => {
     if (value === 0) {
         MyLib.keysInfo()
             .then(data => pixabayApi(data.pixabay, data.pixabayUrl, MyLib.newOptions.country))
-            .then(data => console.log("!!!!!!!" + Object.values(data.hits[0])[imageURL]))
+            .then(data => console.log("!!!!!!!" + data))
             //pixabayPic(data.hits[0][fullHDURL]))
-    } else {
-        pixabayPic("valid pic on first try" + data);
-        //.hits[0][fullHDURL]);
+            /*} else {
+                pixabayPic("valid pic on first try" + data);
+                //.hits[0][fullHDURL]);*/
     }
 }
 
