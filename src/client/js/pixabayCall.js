@@ -2,8 +2,8 @@
 const pixCall = () => {
     MyLib.keysInfo()
         .then(data => pixabayApi(data.pixabay, data.pixabayUrl, MyLib.newOptions.place))
-        // .then(data => checkForZero(data.totalHits))
-        //.then(data => pixabayPic(data.hits[0][fullHDURL]))
+        .then(data => checkForZero(data.totalHits))
+        //.then(data => pixabayPic(data[hits][0][fullHDURL]))
 
 }
 
@@ -29,7 +29,11 @@ const checkForZero = (value) => {
     if (value === 0) {
         MyLib.keysInfo()
             .then(data => pixabayApi(data.pixabay, data.pixabayUrl, MyLib.newOptions.country))
-            //.then(data => pixabayPic(data.hits[0][fullHDURL]))
+            .then(data => console.log("!!!!!!!" + Object.values(data.hits[0])[imageURL]))
+            //pixabayPic(data.hits[0][fullHDURL]))
+    } else {
+        pixabayPic("valid pic on first try" + data);
+        //.hits[0][fullHDURL]);
     }
 }
 
