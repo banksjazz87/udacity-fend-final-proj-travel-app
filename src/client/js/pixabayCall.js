@@ -2,7 +2,7 @@
 const pixCall = () => {
     MyLib.keysInfo()
         .then(data => pixabayApi(data.pixabay, data.pixabayUrl, MyLib.newOptions.place))
-        .then(data => checkForZero(data.totalHits))
+        .then(data => checkForZero(data, "totalHits"))
         //.then(data => console.log("!!!!" + data[0]))
         //.then(data => pixabayPic(data[hits][0][fullHDURL]))
 
@@ -10,7 +10,7 @@ const pixCall = () => {
 
 export { pixCall }
 
-const pixabayApi = async(key, url, place, country) => {
+const pixabayApi = async(key, url, place) => {
 
     //let description = arr.join('+').toString();
 
@@ -26,15 +26,22 @@ const pixabayApi = async(key, url, place, country) => {
 }
 
 //Check to see if no image has been found for the location.
-const checkForZero = (value) => {
-    if (value === 0) {
-        MyLib.keysInfo()
-            .then(data => pixabayApi(data.pixabay, data.pixabayUrl, MyLib.newOptions.country))
-            .then(data => console.log("!!!!!!!" + data))
-            //pixabayPic(data.hits[0][fullHDURL]))
-            /*} else {
-                pixabayPic("valid pic on first try" + data);
-                //.hits[0][fullHDURL]);*/
+const checkForZero = (value, hits) => {
+    if (value[hits] > 0) {
+        //pixIndex(value[hits][0][url]);
+        console.log('greater than 0')
+
+
+    } else {
+        /* MyLib.keysInfo()
+             .then(data => pixabayApi(data.pixabay, data.pixabayUrl, MyLib.newOptions.country))
+             //.then(data => console.log("!!!!!!!" + data))
+             //pixabayPic(data.hits[0][fullHDURL]))
+             /*} else {
+                 pixabayPic("valid pic on first try" + data           //.hits[0][fullHDURL]);*/
+
+        //then(data => pixIndex(data[hits]))
+        console.log('==== 0');
     }
 }
 
@@ -46,4 +53,11 @@ const pixabayPic = (value) => {
     pic.setAttribute('src', value);
 
     container.appendChild(pic);
+}
+
+//create a new index for the image url
+
+const pixIndex = (value) => {
+    MyLib.newOptions.picUrl = value;
+    console.log(MyLib.newOptions);
 }
