@@ -3,7 +3,6 @@ const pixCall = () => {
     MyLib.keysInfo()
         .then(data => pixabayApi(data.pixabay, data.pixabayUrl, MyLib.newOptions.place))
         .then(data => checkForZero(data, "totalHits", "hits", "fullHDURL"))
-        .then(data => pixabayPic(data.picUrl))
 
 }
 
@@ -25,16 +24,16 @@ const pixabayApi = async(key, url, place) => {
 //Check to see if no image has been found for the location.
 const checkForZero = (value, total, arr, url) => {
     if (value[total] > 0) {
-        pixIndex(value[arr][0][url]);
+        pixIndex(value[arr][3][url]);
 
     } else {
         MyLib.keysInfo()
             .then(data => pixabayApi(data.pixabay, data.pixabayUrl, MyLib.newOptions.country))
-            .then(data => pixIndex(data["hits"][0]["fullHDURL"]))
-            .then(data => pixabayPic(data.picUrl))
+            .then(data => pixIndex(data["hits"][3]["fullHDURL"]))
+            //.then(data => pixabayPic(data.picUrl))
     }
 
-    pixabayPic(MyLib.newOptions.picuUrl);
+    //pixabayPic(MyLib.newOptions.picuUrl);
 }
 
 //Function to return an image to the UI
@@ -50,6 +49,5 @@ const pixabayPic = (value) => {
 //create a new index for the image url
 const pixIndex = (value) => {
     MyLib.newOptions.picUrl = value;
-    console.log(MyLib.newOptions);
-    return MyLib.newOptions;
+    pixabayPic(value);
 }
