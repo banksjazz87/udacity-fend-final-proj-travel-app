@@ -2,17 +2,14 @@
 const pixCall = () => {
     MyLib.keysInfo()
         .then(data => pixabayApi(data.pixabay, data.pixabayUrl, MyLib.newOptions.place))
-        .then(data => checkForZero(data, "totalHits"))
-        //.then(data => console.log("!!!!" + data[0]))
-        //.then(data => pixabayPic(data[hits][0][fullHDURL]))
+        .then(data => checkForZero(data, "totalHits", "hits", "fullHDURL"))
+        .then(data => pixabayPic(data.picUrl))
 
 }
 
 export { pixCall }
 
 const pixabayApi = async(key, url, place) => {
-
-    //let description = arr.join('+').toString();
 
     const response = await fetch(url + key + "&q=" + place + "&image_type=photo");
 
@@ -26,23 +23,18 @@ const pixabayApi = async(key, url, place) => {
 }
 
 //Check to see if no image has been found for the location.
-const checkForZero = (value, hits) => {
-    if (value[hits] > 0) {
-        //pixIndex(value[hits][0][url]);
-        console.log('greater than 0')
-
+const checkForZero = (value, total, arr, url) => {
+    if (value[total] > 0) {
+        pixIndex(value[arr][0][url]);
 
     } else {
-        /* MyLib.keysInfo()
-             .then(data => pixabayApi(data.pixabay, data.pixabayUrl, MyLib.newOptions.country))
-             //.then(data => console.log("!!!!!!!" + data))
-             //pixabayPic(data.hits[0][fullHDURL]))
-             /*} else {
-                 pixabayPic("valid pic on first try" + data           //.hits[0][fullHDURL]);*/
-
-        //then(data => pixIndex(data[hits]))
-        console.log('==== 0');
+        MyLib.keysInfo()
+            .then(data => pixabayApi(data.pixabay, data.pixabayUrl, MyLib.newOptions.country))
+            .then(data => pixIndex(data["hits"][0]["fullHDURL"]))
+            .then(data => pixabayPic(data.picUrl))
     }
+
+    pixabayPic(MyLib.newOptions.picuUrl);
 }
 
 //Function to return an image to the UI
@@ -56,8 +48,8 @@ const pixabayPic = (value) => {
 }
 
 //create a new index for the image url
-
 const pixIndex = (value) => {
     MyLib.newOptions.picUrl = value;
     console.log(MyLib.newOptions);
+    return MyLib.newOptions;
 }
