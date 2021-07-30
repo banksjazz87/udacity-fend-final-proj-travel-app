@@ -42,6 +42,7 @@ const pixabayPic = (value) => {
 
     const pic = document.createElement('img');
     pic.setAttribute('src', value);
+    pic.setAttribute('id', 'pixabay_pic');
 
     container.appendChild(pic);
 }
