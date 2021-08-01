@@ -9,7 +9,6 @@ const pixCall = () => {
 export { pixCall }
 
 const pixabayApi = async(key, url, place) => {
-
     const response = await fetch(url + key + "&q=" + place + "&image_type=photo");
 
     try {
@@ -30,10 +29,7 @@ const checkForZero = (value, total, arr, url) => {
         MyLib.keysInfo()
             .then(data => pixabayApi(data.pixabay, data.pixabayUrl, MyLib.newOptions.country))
             .then(data => pixIndex(data["hits"][3]["fullHDURL"]))
-            //.then(data => pixabayPic(data.picUrl))
     }
-
-    //pixabayPic(MyLib.newOptions.picuUrl);
 }
 
 //Function to return an image to the UI
