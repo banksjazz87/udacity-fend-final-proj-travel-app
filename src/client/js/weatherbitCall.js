@@ -1,6 +1,6 @@
 //Fetch call for the weatherbit api
 const weatherbit = async(key, url, lat, long, start, end) => {
-    const response = await fetch(url + lat + "&lon=" + long + "&start_day=" + start + "&end_day=" + end + "&units=I&tp=daily&key=" + key);
+    const response = await fetch(url + lat + "," + long + "/" + start + "/" + end + "?key=" + key);
 
     try {
         const data = await response.json();
@@ -26,9 +26,10 @@ const updateWeather = (current) => {
 const startDate = (element) => {
     let wantedDate = document.getElementById(element);
 
-    MyLib.newOptions.startMonth = wantedDate.value[5] + wantedDate.value[6];
-    MyLib.newOptions.startDay = wantedDate.value[8] + wantedDate.value[9];
-    MyLib.newOptions.startDate = MyLib.newOptions.startMonth + '-' + MyLib.newOptions.startDay;
+    /* MyLib.newOptions.startMonth = wantedDate.value[5] + wantedDate.value[6];
+     MyLib.newOptions.startDay = wantedDate.value[8] + wantedDate.value[9];
+     MyLib.newOptions.startDate = MyLib.newOptions.startMonth + '-' + MyLib.newOptions.startDay;*/
+    console.log(wantedDate.value);
 
 }
 export { startDate };
@@ -37,9 +38,10 @@ export { startDate };
 const endDate = (element) => {
     let wantedDate = document.getElementById(element);
 
-    MyLib.newOptions.endMonth = wantedDate.value[5] + wantedDate.value[6];
+    /*MyLib.newOptions.endMonth = wantedDate.value[5] + wantedDate.value[6];
     MyLib.newOptions.endDay = wantedDate.value[8] + wantedDate.value[9];
-    MyLib.newOptions.endDate = MyLib.newOptions.endMonth + '-' + MyLib.newOptions.endDay;
+    MyLib.newOptions.endDate = MyLib.newOptions.endMonth + '-' + MyLib.newOptions.endDay;*/
+    console.log(wantedDate.value);
 
 }
 export { endDate };
@@ -50,8 +52,8 @@ const weatherCall = () => {
 
     MyLib.keysInfo()
         .then(data => MyLib.weatherbit(
-            data.weatherbit,
-            data.weatherbitUrl,
+            data.visCrossKey,
+            data.visCrossUrl,
             MyLib.newOptions.lat,
             MyLib.newOptions.long,
             MyLib.newOptions.startDate,
@@ -59,6 +61,8 @@ const weatherCall = () => {
         ))
         .then(res => saveWeatherData('max_temp', 'min_temp', 'precip', 'snow', 'month', 'day', res.data))
         .then(res => createWeatherCard('month', 'day', 'highTemp', 'lowTemp', 'precip', 'snow', res.weatherInfo))
+
+    console.log(MyLib.newOptions);
 }
 export { weatherCall }
 

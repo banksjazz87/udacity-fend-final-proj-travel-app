@@ -19,7 +19,9 @@ const keys = {
     weatherbit: process.env.WEATHERBIT_KEY,
     weatherbitUrl: process.env.WEATHERBIT_URL,
     pixabay: process.env.PIXABAY_KEY,
-    pixabayUrl: process.env.PIXABAY_URL
+    pixabayUrl: process.env.PIXABAY_URL,
+    visCrossUrl: process.env.VISUALCROSSING_URL,
+    visCrossKey: process.env.VISUALCROSSING_KEY
 }
 
 //console.log(process.env.GEONAMES_HOST);
@@ -38,7 +40,8 @@ app.listen(port, () => {
     console.log(`Server is running on port ${port}`)
     console.log(keys.geonames)
     console.log(keys.weatherbit)
-    console.log(keys.pixaby)
+    console.log(keys.pixabay)
+    console.log(keys.visCrossUrl, keys.visCrossKey)
 })
 
 //An empty object to hold all of the data that is being pulled from the user and the various apis
