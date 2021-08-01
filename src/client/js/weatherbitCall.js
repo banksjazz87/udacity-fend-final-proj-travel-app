@@ -26,9 +26,11 @@ const updateWeather = (current) => {
 const startDate = (element) => {
     let wantedDate = document.getElementById(element);
 
-    /* MyLib.newOptions.startMonth = wantedDate.value[5] + wantedDate.value[6];
-     MyLib.newOptions.startDay = wantedDate.value[8] + wantedDate.value[9];
-     MyLib.newOptions.startDate = MyLib.newOptions.startMonth + '-' + MyLib.newOptions.startDay;*/
+    MyLib.newOptions.startMonth = wantedDate.value[5] + wantedDate.value[6];
+    MyLib.newOptions.startDay = wantedDate.value[8] + wantedDate.value[9];
+    //MyLib.newOptions.startDate = MyLib.newOptions.startMonth + '-' + MyLib.newOptions.startDay;
+
+    MyLib.newOptions.startDate = wantedDate.value;
     console.log(wantedDate.value);
 
 }
@@ -38,9 +40,11 @@ export { startDate };
 const endDate = (element) => {
     let wantedDate = document.getElementById(element);
 
-    /*MyLib.newOptions.endMonth = wantedDate.value[5] + wantedDate.value[6];
+    MyLib.newOptions.endMonth = wantedDate.value[5] + wantedDate.value[6];
     MyLib.newOptions.endDay = wantedDate.value[8] + wantedDate.value[9];
-    MyLib.newOptions.endDate = MyLib.newOptions.endMonth + '-' + MyLib.newOptions.endDay;*/
+    //MyLib.newOptions.endDate = MyLib.newOptions.endMonth + '-' + MyLib.newOptions.endDay;
+
+    MyLib.newOptions.endDate = wantedDate.value;
     console.log(wantedDate.value);
 
 }
