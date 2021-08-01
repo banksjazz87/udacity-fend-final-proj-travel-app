@@ -1,7 +1,7 @@
 //Function that returns a series of other functions to ultimately return an image to the UI
 const pixCall = () => {
     MyLib.keysInfo()
-        .then(data => pixabayApi(data.pixabay, data.pixabayUrl, MyLib.newOptions.place))
+        .then(data => pixabayApi(data.pixabay, data.pixabayUrl, [MyLib.newOptions.place, MyLib.newOptions.state, MyLib.newOptions.Country]))
         .then(data => checkForZero(data, "totalHits", "hits", "fullHDURL"))
 
 }
@@ -9,7 +9,11 @@ const pixCall = () => {
 export { pixCall }
 
 const pixabayApi = async(key, url, place) => {
-    const response = await fetch(url + key + "&q=" + place + "&image_type=photo");
+
+    const addPlusSign = place.join('+');
+
+    console.log((url + key + "&q=" + addPlusSign + "&image_type=photo"));
+    /*const response = await fetch(url + key + "&q=" + addPlusSign + "&image_type=photo");
 
     try {
         let data = await response.json();
@@ -17,7 +21,7 @@ const pixabayApi = async(key, url, place) => {
         return data;
     } catch (e) {
         console.log('error', e);
-    }
+    }*/
 }
 
 //Check to see if no image has been found for the location.
