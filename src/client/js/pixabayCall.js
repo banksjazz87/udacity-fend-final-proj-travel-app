@@ -10,10 +10,17 @@ export { pixCall }
 
 const pixabayApi = async(key, url, place) => {
 
-    const addPlusSign = place.join('+');
+    let addPlusSign = '';
+
+    if (place.length === 1) {
+        addPlusSign = place.toString();
+    } else {
+        addPlusSign = place.join('+').toString();
+    }
+    console.log(place.length);
 
     console.log((url + key + "&q=" + addPlusSign + "&image_type=photo"));
-    /*const response = await fetch(url + key + "&q=" + addPlusSign + "&image_type=photo");
+    const response = await fetch(url + key + "&q=" + place + "&image_type=photo");
 
     try {
         let data = await response.json();
@@ -21,17 +28,17 @@ const pixabayApi = async(key, url, place) => {
         return data;
     } catch (e) {
         console.log('error', e);
-    }*/
+    }
 }
 
 //Check to see if no image has been found for the location.
 const checkForZero = (value, total, arr, url) => {
     if (value[total] > 0) {
-        pixIndex(value[arr][3][url]);
+        pixIndex(value[arr][0][url]);
 
     } else {
         MyLib.keysInfo()
-            .then(data => pixabayApi(data.pixabay, data.pixabayUrl, MyLib.newOptions.country))
+            .then(data => pixabayApi(data.pixabay, data.pixabayUrl, [MyLib.newOptions.country]))
             .then(data => pixIndex(data["hits"][3]["fullHDURL"]))
     }
 }
