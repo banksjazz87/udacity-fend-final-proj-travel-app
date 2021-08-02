@@ -4,6 +4,7 @@ const weatherbit = async(key, url, lat, long, start, end) => {
 
     try {
         const data = await response.json();
+        console.log("weather", data)
         return data;
     } catch (error) {
         console.log('error', error);
@@ -63,7 +64,7 @@ const weatherCall = () => {
             MyLib.newOptions.startDate,
             MyLib.newOptions.endDate
         ))
-        .then(res => saveWeatherData('max_temp', 'min_temp', 'precip', 'snow', 'month', 'day', res.data))
+        .then(res => saveWeatherData('tempmax', 'tempmin', 'precip', 'snow', 'datetime', 'clouds', res.days))
         .then(res => createWeatherCard('month', 'day', 'highTemp', 'lowTemp', 'precip', 'snow', res.weatherInfo))
 
     console.log(MyLib.newOptions);
@@ -71,7 +72,7 @@ const weatherCall = () => {
 export { weatherCall }
 
 //Updates the newObjects array
-const saveWeatherData = (high, low, precipitation, snow, month, day, arr) => {
+const saveWeatherData = (high, low, precipitation, snow, date, clouds, arr) => {
 
     //let weatherContainer = [];
     MyLib.newOptions.weatherInfo = [];
@@ -83,9 +84,11 @@ const saveWeatherData = (high, low, precipitation, snow, month, day, arr) => {
             highTemp: currentVal[high],
             lowTemp: currentVal[low],
             precip: currentVal[precipitation],
+            clouds: currentVal[clouds],
             snow: currentVal[snow],
-            day: currentVal[day],
-            month: currentVal[month]
+            date: currentVal[date],
+            month: currentVal[date][5] + currentVal[date][6],
+            day: currentVal[date][8] + currentVal[date][9]
         }
         MyLib.newOptions.weatherInfo.push(weather);
         //MyLib.NewOptions.weatherInfo.push(weather);
