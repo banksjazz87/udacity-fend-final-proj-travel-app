@@ -16,8 +16,6 @@ const returnGeo = () => {
         MyLib.clearOptions();
         MyLib.keysInfo()
             .then(data => MyLib.geonamesApi(data.geonames, data.geoUrl))
-            .then(data => MyLib.postData('http://localhost:3080/locationOptions', { data }))
-            .then(locations)
     });
 }
 export { returnGeo }
@@ -47,8 +45,7 @@ const geonamesApi = async(key, url) => {
 
             currentOptions.push(newOptions);
         }
-        //displayedGeo(currentOptions);
-        return MyLib.currentOptions;
+        displayedGeo(currentOptions);
     } catch (error) {
         alert('Please type a more specific location and try again.')
         console.log('error', error);
@@ -108,8 +105,6 @@ const displayedGeo = (data) => {
         currentOptions.push(newOptions);
 
         showDateInput();
-
-        MyLib.postData("/currentUserData", { key: currentOptions.key, place: currentOptions.place, state: currentOptions.state, country: currentOptions.country, lat: currentOptions.lat, long: currentOptions.long, date: "" })
     })
 }
 export { displayedGeo }
@@ -138,18 +133,5 @@ const showDateInput = () => {
 
     if (dates.style.display === 'none') {
         dates.style.display = 'flex';
-    }
-}
-
-//fetch request for the current location options from the server
-const locations = async() => {
-    const response = await fetch("http://localhost:3080/locationOptions");
-
-    try {
-        const newData = await response.json();
-        console.log(newData);
-        return newData;
-    } catch (e) {
-        console.log('error', e);
     }
 }
