@@ -58,23 +58,30 @@ let currentData = {};
 //An empty array to hold all of the data that has been submitted
 let allData = [];
 
-app.post('/currentUserData', updatedSelection);
+app.post('http://localhost:3080/locationOptions', updatedSelection);
 
 //function that takes the req.body and updates values in the currentData object
 function updatedSelection(req, res) {
-    currentData = {
-        key: req.body.key,
-        place: req.body.place,
-        state: req.body.state,
-        country: req.body.country,
-        lat: req.body.lat,
-        long: req.body.long
+    for (let i = 0; i < req.body.length; i++) {
+        currentData = {
+            key: req.body.key[i],
+            place: req.body.place[i],
+            state: req.body.state[i],
+            country: req.body.country[i],
+            lat: req.body.lat[i],
+            long: req.body.long[i]
+        }
+        allData.push(currentData[i])
     }
-    allData.push(currentData);
-    res.send(currentData);
+    res.send(allData);
     console.log(allData);
 
 }
+
+//returns location data
+app.get('http://localhost:3080/locationOptions', (req, res) => {
+    res.send(allData);
+})
 
 //Returns all userData
 app.get('/allData', (req, res) => {

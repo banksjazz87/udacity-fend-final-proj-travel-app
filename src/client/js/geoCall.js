@@ -16,6 +16,8 @@ const returnGeo = () => {
         MyLib.clearOptions();
         MyLib.keysInfo()
             .then(data => MyLib.geonamesApi(data.geonames, data.geoUrl))
+            .then(data => MyLib.postData('http://localhost:3080/locationOptions', { data }))
+            .then(locations)
     });
 }
 export { returnGeo }
@@ -45,7 +47,8 @@ const geonamesApi = async(key, url) => {
 
             currentOptions.push(newOptions);
         }
-        displayedGeo(currentOptions);
+        //displayedGeo(currentOptions);
+        return MyLib.currentOptions;
     } catch (error) {
         alert('Please type a more specific location and try again.')
         console.log('error', error);
@@ -135,5 +138,18 @@ const showDateInput = () => {
 
     if (dates.style.display === 'none') {
         dates.style.display = 'flex';
+    }
+}
+
+//fetch request for the current location options from the server
+const locations = async() => {
+    const response = await fetch("http://localhost:3080/locationOptions");
+
+    try {
+        const newData = await response.json();
+        console.log(newData);
+        return newData;
+    } catch (e) {
+        console.log('error', e);
     }
 }
