@@ -106,7 +106,7 @@ const displayedGeo = (data) => {
 
         showDateInput();
 
-        MyLib.postData("http://localhost:3080/currentUserData", { key: currentOptions.key, place: currentOptions.place, state: currentOptions.state, country: currentOptions.country, lat: currentOptions.lat, long: currentOptions.long, date: "" })
+        MyLib.postData("/currentUserData", { key: currentOptions.key, place: currentOptions.place, state: currentOptions.state, country: currentOptions.country, lat: currentOptions.lat, long: currentOptions.long, date: "" })
     })
 }
 export { displayedGeo }
