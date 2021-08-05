@@ -59,11 +59,18 @@ let currentData = {};
 let allData = [];
 
 app.post("/allCurrentData", function(req, res) {
-    allData.push(req.body);
+    allData.push(req.body.values);
+    res.send(allData);
+    console.log(allData);
+})
+
+app.get("/allCurrentData", (req, res) => {
+    res.send(allData);
     console.log(allData);
 })
 
 //Returns all userData
-app.get('/allData', (req, res) => {
+app.get('/allData', function(req, res) {
     res.send(allData);
+    console.log(allData);
 })

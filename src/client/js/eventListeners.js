@@ -6,7 +6,7 @@ const submitFunction = () => {
         e.preventDefault();
 
         Promise.all([MyLib.weatherCall(), MyLib.pixCall()])
-            .then(() => MyLib.postData('/allCurrentData', { data: MyLib.currentOptions }))
+            .then(data => MyLib.postData('http://localhost:3080/allCurrentData', { values: data }))
     })
 }
 export { submitFunction }
