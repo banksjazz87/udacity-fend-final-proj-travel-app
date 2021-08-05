@@ -10,7 +10,8 @@ dotenv.config();
 
 //adding middleware
 app.use(cors());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.json());
 
 //keys for the various apis
 const keys = {
@@ -26,15 +27,18 @@ const keys = {
 
 //console.log(process.env.GEONAMES_HOST);
 
+app.use(express.static('dist'));
+
 app.get('/', (req, res) => {
-    res.sendFile("index.html", { root: "dist" })
+    res.sendFile('dist/index.html');
+    //res.sendFile("index.html", { root: "dist" })
 });
 
 app.get('/keyData', (req, res) => {
     res.send(keys);
 })
 
-app.use(express.static('dist'));
+
 
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`)
