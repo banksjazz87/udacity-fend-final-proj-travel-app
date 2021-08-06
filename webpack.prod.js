@@ -9,6 +9,7 @@ module.exports = {
     mode: 'production',
     entry: './src/client/index.js',
     output: {
+        filename: "mainApp.js",
         library: {
             name: 'MyLib',
             type: 'var'
@@ -25,6 +26,7 @@ module.exports = {
             exclude: /node_modules/,
             use: {
                 loader: 'babel-loader',
+                options: ['@babel/preset-env']
             },
             test: /\.scss$/,
             use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']

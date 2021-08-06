@@ -44,7 +44,14 @@
     <div id="location_pic"></div>
 
 </body>
-<script src="/dist/main.js">
+
+<!-- script for the development server-->
+<script src="/dist/mainApp.js"></script>
+
+<!-- script for the production server -->
+<script src="mainApp.js"></script>
+
+<script>
     //Event listener added to the search button
     MyLib.returnGeo();
 
@@ -57,7 +64,7 @@
     clearButton.addEventListener('click', (e) => {
         e.preventDefault();
         MyLib.clearOptions();
-    });*/
+    })*/
 </script>
 
 </html>
