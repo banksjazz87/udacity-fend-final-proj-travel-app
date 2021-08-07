@@ -13,8 +13,11 @@ import { returnGeo } from './js/geoCall.js'
 import { submitFunction } from './js/eventListeners.js'
 import { pixCall } from './js/pixabayCall.js'
 import './styles/style.scss'
-
-
+import cloudy from './assets/cloudy_clipArtLibrary.jpeg'
+import logo from './assets/pixaby_logo.png'
+import rain from './assets/rain_clipartLibrary.jpeg'
+import snow from './assets/snow_clipartLibrary.jpeg'
+import sunny from './assets/sunny_clipartLibrary.jpeg'
 
 export {
     keysInfo,
@@ -30,5 +33,10 @@ export {
     submitFunction,
     pixCall,
     newOptions,
-    currentOptions
+    currentOptions,
+    cloudy,
+    logo,
+    rain,
+    snow,
+    sunny
 }

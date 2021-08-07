@@ -12,17 +12,25 @@ module.exports = {
     },
     module: {
         rules: [{
-            test: /\.js$/,
-            exclude: /node_modules/,
-            use: {
-                loader: 'babel-loader',
-                options: {
-                    presets: ['@babel/preset-env']
-                }
+                test: /\.js$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: [
+                            ['@babel/preset-env', { targets: "defaults" }]
+                        ]
+                    }
+                },
+                test: /\.scss$/,
+                use: ['style-loader', 'css-loader', 'sass-loader']
             },
-            test: /\.scss$/,
-            use: ['style-loader', 'css-loader', 'sass-loader']
-        }]
+            {
+                test: /\.(png|jpe?g|gif)$/i,
+                loader: 'file-loader',
+
+            },
+        ],
     },
     plugins: [
         new HtmlWebPackPlugin({
