@@ -17,18 +17,14 @@ module.exports = {
                 use: {
                     loader: 'babel-loader',
                     options: {
-                        presets: [
-                            ['@babel/preset-env', { targets: "defaults" }]
-                        ]
+                        presets: ['@babel/preset-env'],
+                        plugins: ['@babel/plugin-transform-runtime']
                     }
-                },
-                test: /\.scss$/,
-                use: ['style-loader', 'css-loader', 'sass-loader']
+                }
             },
             {
-                test: /\.(png|jpe?g|gif)$/i,
-                loader: 'file-loader',
-
+                test: /\.scss$/,
+                use: ['style-loader', 'css-loader', 'sass-loader']
             },
         ],
     },
