@@ -63,7 +63,10 @@ let currentData = {};
 let allData = [];
 
 app.post("/allCurrentData", function(req, res) {
-    allData.push(req.body.values);
+    /*for (let i = 0; i < req.body.values.length; i++) {
+        allData.push(Object.entries(req.body.values)[i])
+    }*/
+    allData.push(req.body);
     res.send(allData);
     console.log(allData);
 })

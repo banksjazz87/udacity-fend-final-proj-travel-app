@@ -119,19 +119,19 @@ const createWeatherCard = (month, day, high, low, precip, snow, weatherArr) => {
 
         if (parseFloat(weatherArr[i][precip]) > .1 && weatherArr[i][snow] === 0) {
 
-            img.setAttribute('src', '/src/client/assets/rain_clipartLibrary.jpeg');
+            img.setAttribute('src', MyLib.rain);
 
         } else if (parseFloat(weatherArr[i][precip]) < .1 && parseFloat(weatherArr[i][precip] > 0.01) && parseFloat(weatherArr[i][snow]) === 0) {
 
-            img.setAttribute('src', 'src/client/assets/cloudy_clipArtLibrary.jpeg');
+            img.setAttribute('src', MyLib.cloudy);
 
         } else if (parseFloat(weatherArr[i][snow]) > 0) {
 
-            img.setAttribute('src', 'src/client/assets/snow_clipartLibrary.jpeg');
+            img.setAttribute('src', MyLib.snow);
 
         } else {
 
-            img.setAttribute('src', 'src/client/assets/sunny_clipartLibrary.jpeg');
+            img.setAttribute('src', MyLib.sunny);
         }
 
         newCard.appendChild(img);
