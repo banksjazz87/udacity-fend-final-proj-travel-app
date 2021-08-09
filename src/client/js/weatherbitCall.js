@@ -99,7 +99,7 @@ const saveWeatherData = (high, low, precipitation, snow, date, clouds, arr) => {
     //Remove the previous object material from the array, to avoid unnecessary duplication
     MyLib.currentOptions.splice(1);
 
-    console.log(MyLib.newOptions);
+    console.log("!!!!!" + MyLib.newOptions);
     console.log(MyLib.currentOptions);
     return MyLib.newOptions;
 }
