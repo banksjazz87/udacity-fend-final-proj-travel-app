@@ -11,6 +11,7 @@ import { endDate } from './js/weatherbitCall.js'
 import { weatherCall } from './js/weatherbitCall.js'
 import { returnGeo } from './js/geoCall.js'
 import { submitFunction } from './js/eventListeners.js'
+import { clearFunction } from './js/eventListeners'
 import { pixCall } from './js/pixabayCall.js'
 import './styles/style.scss'
 const cloudy = new URL('./assets/cloudy_clipArtLibrary.jpeg',
@@ -37,6 +38,7 @@ export {
     weatherCall,
     submitFunction,
     pixCall,
+    clearFunction,
     newOptions,
     currentOptions,
     cloudy,

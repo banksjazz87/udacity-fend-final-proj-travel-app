@@ -147,4 +147,5 @@ const createWeatherCard = (month, day, high, low, precip, snow, weatherArr) => {
         weatherContainer.appendChild(newCard);
 
     }
+    return MyLib.newOptions;
 }

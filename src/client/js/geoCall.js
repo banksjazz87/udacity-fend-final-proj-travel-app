@@ -121,6 +121,11 @@ const clearOptions = () => {
 
         const dates = document.getElementById('date_input');
         dates.style.display = 'none';
+
+        document.getElementById('destination').value = null;
+
+        clearItems('card');
+        clearItems('img');
     }
 
     //const dates = document.getElementById('date_input');
@@ -128,10 +133,21 @@ const clearOptions = () => {
 }
 export { clearOptions }
 
+//function that displays the date input
 const showDateInput = () => {
     const dates = document.getElementById('date_input');
 
     if (dates.style.display === 'none') {
         dates.style.display = 'flex';
     }
+}
+
+//function that will remove all items of the same kind
+const clearItems = (item) => {
+    let allItems = document.querySelectorAll(item);
+
+    for (let i = 0; i < allItems.length; i++) {
+        allItems[i].remove();
+    }
+
 }

@@ -58,4 +58,5 @@ const pixabayPic = (value) => {
 const pixIndex = (value) => {
     MyLib.newOptions.picUrl = value;
     pixabayPic(value);
+    MyLib.postData('http://localhost:3080/allCurrentData', MyLib.newOptions);
 }
