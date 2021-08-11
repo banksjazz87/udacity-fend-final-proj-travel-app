@@ -66,7 +66,6 @@ export { geonamesApi }
 
 //function to return the info from the geonamesApi to the DOM
 const displayedGeo = (data) => {
-
     const select = document.createElement('select');
     const selectContainer = document.getElementById('select_location');
     selectContainer.appendChild(select);
@@ -115,6 +114,7 @@ const displayedGeo = (data) => {
         currentOptions.push(newOptions);
 
         showDateInput();
+        MyLib.clearItems('select');
     })
 }
 export { displayedGeo }
@@ -126,16 +126,10 @@ const clearOptions = () => {
     if (selectMenu) {
         selectMenu.remove()
 
-        // const destinationInput = document.getElementById('destination');
-        //destinationInput.value = null;
-
         const dates = document.getElementById('date_input');
         dates.style.display = 'none';
 
-        document.getElementById('destination').value = "";
-
-        clearItems('card');
-        clearItems('img');
+        MyLib.clearItems('card', 'img', 'select');
     }
 
     //const dates = document.getElementById('date_input');
@@ -153,11 +147,15 @@ const showDateInput = () => {
 }
 
 //function that will remove all items of the same kind
-const clearItems = (item) => {
-    let allItems = document.querySelectorAll(item);
+const clearItems = (...args) => {
 
-    for (let i = 0; i < allItems.length; i++) {
-        allItems[i].remove();
+    for (let i = 0; i < args.length; i++) {
+        let items = document.querySelectorAll(args[i]);
+
+        for (let j = 0; j < items.length; j++) {
+            items[j].remove();
+        }
     }
-
 }
+
+export { clearItems }

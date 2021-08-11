@@ -39,7 +39,7 @@ const checkForZero = (value, total, arr, url) => {
     } else {
         MyLib.keysInfo()
             .then(data => pixabayApi(data.pixabay, data.pixabayUrl, [MyLib.newOptions.country]))
-            .then(data => pixIndex(data["hits"][3]["fullHDURL"]))
+            .then(data => pixIndex(data["hits"][0]["fullHDURL"]))
     }
 }
 

@@ -5,6 +5,8 @@ const submitFunction = () => {
     submitBttn.addEventListener('click', (e) => {
         e.preventDefault();
 
+        MyLib.clearItems('card', 'img');
+
         Promise.all([MyLib.weatherCall(), MyLib.pixCall()])
     })
 }
@@ -17,6 +19,7 @@ const clearFunction = () => {
     clearButton.addEventListener('click', (e) => {
         e.preventDefault();
         MyLib.clearOptions();
+        document.getElementById('destination').value = "";
     });
 }
 export { clearFunction }
