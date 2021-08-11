@@ -51,7 +51,7 @@ const pixabayPic = (value) => {
     pic.setAttribute('src', value);
     pic.setAttribute('id', 'pixabay_pic');
 
-    setInterval(() => {
+    setTimeout(() => {
         container.appendChild(pic)
     }, 1000);
 }
