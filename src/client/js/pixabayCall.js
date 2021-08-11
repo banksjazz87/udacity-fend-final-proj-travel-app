@@ -51,12 +51,16 @@ const pixabayPic = (value) => {
     pic.setAttribute('src', value);
     pic.setAttribute('id', 'pixabay_pic');
 
-    container.appendChild(pic);
+    setInterval(() => {
+        container.appendChild(pic)
+    }, 1000);
 }
 
 //create a new index for the image url
 const pixIndex = (value) => {
     MyLib.newOptions.picUrl = value;
-    pixabayPic(value);
+
+    pixabayPic(value)
+
     MyLib.postData('http://localhost:3080/allCurrentData', MyLib.newOptions);
 }
