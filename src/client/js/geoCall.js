@@ -12,10 +12,20 @@ export { newOptions }
 const returnGeo = () => {
     const searchButton = document.getElementById('search');
 
-    searchButton.addEventListener('click', () => {
-        MyLib.clearOptions();
-        MyLib.keysInfo()
-            .then(data => MyLib.geonamesApi(data.geonames, data.geoUrl))
+    const userInput = document.getElementById('destination');
+
+    searchButton.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        if (userInput.value === "") {
+            alert("Please enter a destination.")
+
+        } else {
+
+            MyLib.clearOptions();
+            MyLib.keysInfo()
+                .then(data => MyLib.geonamesApi(data.geonames, data.geoUrl))
+        }
     });
 }
 export { returnGeo }
@@ -122,7 +132,7 @@ const clearOptions = () => {
         const dates = document.getElementById('date_input');
         dates.style.display = 'none';
 
-        document.getElementById('destination').value = null;
+        document.getElementById('destination').value = "";
 
         clearItems('card');
         clearItems('img');
