@@ -54,6 +54,7 @@ export { endDate };
 const weatherCall = () => {
     MyLib.startDate('start_date');
     MyLib.endDate('end_date');
+    MyLib.tripLength(MyLib.newOptions.startDate, MyLib.newOptions.endDate);
 
     MyLib.keysInfo()
         .then(data => MyLib.weatherbit(

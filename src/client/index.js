@@ -14,6 +14,7 @@ import { clearItems } from './js/geoCall.js'
 import { submitFunction } from './js/eventListeners.js'
 import { clearFunction } from './js/eventListeners'
 import { pixCall } from './js/pixabayCall.js'
+import { tripLength } from './js/trip.js'
 import './styles/style.scss'
 const cloudy = new URL('./assets/cloudy_clipArtLibrary.jpeg',
     import.meta.url);
@@ -41,6 +42,7 @@ export {
     pixCall,
     clearFunction,
     clearItems,
+    tripLength,
     newOptions,
     currentOptions,
     cloudy,
