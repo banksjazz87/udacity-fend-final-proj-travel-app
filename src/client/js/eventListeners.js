@@ -19,7 +19,10 @@ const clearFunction = () => {
     clearButton.addEventListener('click', (e) => {
         e.preventDefault();
         MyLib.clearOptions();
-        document.getElementById('destination').value = "";
+
+        const destination = document.getElementById('destination');
+        destination.value = null;
+
     });
 }
 export { clearFunction }

@@ -89,6 +89,7 @@ const displayedGeo = (data) => {
     }
 
     select.addEventListener('change', (e) => {
+
         let choice = Object.values(e.target.value).join("");
 
         let i = 0;
@@ -114,26 +115,17 @@ const displayedGeo = (data) => {
         currentOptions.push(newOptions);
 
         showDateInput();
-        MyLib.clearItems('select');
+        clearItems('select');
     })
 }
 export { displayedGeo }
 
 //Clear: past options, destination input and dates
 const clearOptions = () => {
-    const selectMenu = document.querySelector('select');
+    const dates = document.getElementById('date_input');
+    dates.style.display = 'none';
 
-    if (selectMenu) {
-        selectMenu.remove()
-
-        const dates = document.getElementById('date_input');
-        dates.style.display = 'none';
-
-        MyLib.clearItems('card', 'img', 'select');
-    }
-
-    //const dates = document.getElementById('date_input');
-    //dates.style.display = 'none';
+    MyLib.clearItems('card', 'img', 'select');
 }
 export { clearOptions }
 
