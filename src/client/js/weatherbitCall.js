@@ -54,7 +54,7 @@ export { endDate };
 const weatherCall = () => {
     MyLib.startDate('start_date');
     MyLib.endDate('end_date');
-    MyLib.tripLength(MyLib.newOptions.startDate, MyLib.newOptions.endDate);
+    //MyLib.tripLength(MyLib.newOptions.startDate, MyLib.newOptions.endDate);
 
     MyLib.keysInfo()
         .then(data => MyLib.weatherbit(
@@ -107,6 +107,10 @@ const saveWeatherData = (high, low, precipitation, snow, date, clouds, arr) => {
 
 //Function to return a card element that contains weather information
 const createWeatherCard = (month, day, high, low, precip, snow, weatherArr) => {
+
+    //First, return the value of the location and trip length
+    MyLib.tripLength(MyLib.newOptions.startDate, MyLib.newOptions.endDate)
+
     const weatherContainer = document.getElementById('weather');
 
     for (let i = 0; i < weatherArr.length; i++) {
