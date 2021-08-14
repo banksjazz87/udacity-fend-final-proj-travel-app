@@ -11,7 +11,6 @@ let newOptions = {}
  * @description this is an asynchronous fetch api call that is made to the geonames Api
  * @returns data for the newOptions object and pushes it into the currentOptions array, and then calls the diplayedGeo() function.  If there is an error while retrieving the info API, an alert box appears and prompts the user to try a more detailed location.
  */
-
 const geonamesApi = async(key, url) => {
     let currentValue = document.getElementById('destination');
 
@@ -44,7 +43,12 @@ const geonamesApi = async(key, url) => {
     }
 }
 
-//function to return the info from the geonamesApi to the DOM
+/**
+ * 
+ * @param {*} data 
+ * @description this function will take the data from the geonames api call and then return a select element along with 20 options as children, and also adds an onchange event listener to the options, and then stores the data that the user has selected.
+ * @return updates the UI with a dropdown option bar of 20 different options, each option will have a change event listener applied to it.  And then calls the showDate() function, which will show the two date inputs along with the submit and clear buttons. The select element is removes, so the user can only use the location that they have selected.
+ */
 const displayedGeo = (data) => {
     const select = document.createElement('select');
     const selectContainer = document.getElementById('select_location');
@@ -53,7 +57,6 @@ const displayedGeo = (data) => {
     let headerOfOptions = document.createElement('option');
     headerOfOptions.textContent = "Please choose from one of the following...";
     select.appendChild(headerOfOptions);
-
 
     for (let i = 0; i < data.length; i++) {
         let optionNum = i + 1;
@@ -98,18 +101,22 @@ const displayedGeo = (data) => {
         clearItems('select');
     })
 }
-export { displayedGeo }
 
-//Clear: past options, destination input and dates
+/**
+ * @details this function will clear everything but the main input box.
+ * @return returns the start screen.
+ */
 const clearOptions = () => {
     const dates = document.getElementById('date_input');
     dates.style.display = 'none';
 
     MyLib.clearItems('card', 'img', 'select', 'p');
 }
-export { clearOptions }
 
-//function that displays the date input
+/**
+ * @details function that determines if the date input should be displayed or not.
+ * @returns either returns a displayed date input field, or removes it.
+ */
 const showDateInput = () => {
     const dates = document.getElementById('date_input');
 
@@ -118,7 +125,12 @@ const showDateInput = () => {
     }
 }
 
-//function that will remove all items of the same kind
+/**
+ * 
+ * @param  {...any} args 
+ * @details takes on one or more parameters used to find all instances of the element/class/etc.
+ * @returns removes listed parameters from the DOM.
+ */
 const clearItems = (...args) => {
 
     for (let i = 0; i < args.length; i++) {
@@ -130,5 +142,4 @@ const clearItems = (...args) => {
     }
 }
 
-export { clearItems }
-export { currentOptions, newOptions, geonamesApi }
+export { currentOptions, newOptions, geonamesApi, displayedGeo, clearOptions, clearItems }

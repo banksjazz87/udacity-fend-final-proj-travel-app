@@ -1,15 +1,24 @@
-//Function that returns a series of other functions to ultimately return an image to the UI
+/**
+ * @description returns a series of promises that ultimately renders an impage to UI.
+ * @returns image from pixabay to the UI.
+ */
 const pixCall = () => {
     MyLib.keysInfo()
         .then(data => pixabayApi(data.pixabay, data.pixabayUrl, [MyLib.newOptions.place, MyLib.newOptions.state, MyLib.newOptions.Country]))
         .then(data => checkForZero(data, "totalHits", "hits", "fullHDURL"))
-
 }
 
-export { pixCall }
-
+/**
+ * 
+ * @param {*} key, data from the server.
+ * @param {*} url, data from the server.
+ * @param {*} place, data from the user's input.
+ * @description this the main fetch call for the pixabay API.
+ * @returns data from pixabay.
+ */
 const pixabayApi = async(key, url, place) => {
 
+    //Need to use this to determine if there needs to be a plus sign included in the API call, for the destination.
     let addPlusSign = '';
 
     if (place.length === 1) {
@@ -24,13 +33,21 @@ const pixabayApi = async(key, url, place) => {
 
     try {
         let data = await response.json();
-        console.log(data);
         return data;
     } catch (e) {
         console.log('error', e);
     }
 }
 
+/**
+ * 
+ * @param {*} value 
+ * @param {*} total 
+ * @param {*} arr 
+ * @param {*} url 
+ * @description determines if an image is available from pixabay, that corresponds with the user's input.  Otherwise an image from the destination's country is returned.
+ * @returns an image to the DOM, either one pertaining to the exacty location, or to the location's country, along with the pixabay icon.
+ */
 //Check to see if no image has been found for the location.
 const checkForZero = (value, total, arr, url) => {
     if (value[total] > 0) {
@@ -43,7 +60,12 @@ const checkForZero = (value, total, arr, url) => {
     }
 }
 
-//Function to return an image to the UI
+/**
+ * 
+ * @param {*} value, image href from the pixabay API 
+ * @details a setTimeout function is called to time when a picture is added to the UI.
+ * @returns renders the image from the pixabay API call and also renders the logo pic for the pixabay API.
+ */
 const pixabayPic = (value) => {
     const container = document.getElementById('location_pic');
 
@@ -51,8 +73,19 @@ const pixabayPic = (value) => {
     pic.setAttribute('src', value);
     pic.setAttribute('id', 'pixabay_pic');
 
+    const logo = document.createElement('img');
+    logo.setAttribute('src', MyLib.logo);
+    logo.setAttribute('id', 'logo_pic');
+
+    const pixabayLink = document.createElement('a');
+    pixabayLink.setAttribute('href', 'https://pixabay.com/');
+    pixabayLink.setAttribute('target', 'blank');
+    //logo.appendChild(pixabayLink);
+
     setTimeout(() => {
         container.appendChild(pic)
+        container.appendChild(logo);
+        logo.appendChild(pixabayLink);
     }, 1000);
 }
 
@@ -64,3 +97,5 @@ const pixIndex = (value) => {
 
     MyLib.postData('http://localhost:3080/allCurrentData', MyLib.newOptions);
 }
+
+export { pixCall, }
