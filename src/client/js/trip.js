@@ -12,6 +12,7 @@ const tripLength = (start, end) => {
 
     console.log("final answer issssss" + parseInt(days + 1));
     MyLib.newOptions.tripLength = parseInt(days + 1);
+
     tripLengthToUi(MyLib.newOptions.tripLength,
         MyLib.newOptions.place,
         MyLib.newOptions.state,
@@ -24,7 +25,7 @@ export { tripLength }
 const tripLengthToUi = (value, place, state, country) => {
 
     //Create div and append it at the top of the output
-    const lengthHeader = document.createElement('h2');
+    const lengthHeader = document.createElement('p');
 
     let day = "";
     if (value > 1) {
@@ -34,11 +35,13 @@ const tripLengthToUi = (value, place, state, country) => {
     }
 
     lengthHeader.textContent = value + day;
+    lengthHeader.setAttribute('id', "length_header");
     const output = document.getElementById('output_container');
     output.insertAdjacentElement('afterbegin', lengthHeader);
 
-    const placeLocation = document.createElement('h3');
+    const placeLocation = document.createElement('p');
     placeLocation.textContent = place;
+    placeLocation.setAttribute('id', 'place_location')
     lengthHeader.insertAdjacentElement('afterEnd', placeLocation)
 
     let stateCountry = "";
@@ -47,8 +50,9 @@ const tripLengthToUi = (value, place, state, country) => {
     } else {
         stateCountry = state + ", " + country
     }
-    const stCntry = document.createElement('h4');
+    const stCntry = document.createElement('p');
     stCntry.textContent = stateCountry;
+    stCntry.setAttribute('id', 'state_country');
     placeLocation.insertAdjacentElement('afterend', stCntry);
 
 }

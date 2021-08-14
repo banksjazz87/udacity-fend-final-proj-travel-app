@@ -125,7 +125,7 @@ const clearOptions = () => {
     const dates = document.getElementById('date_input');
     dates.style.display = 'none';
 
-    MyLib.clearItems('card', 'img', 'select');
+    MyLib.clearItems('card', 'img', 'select', 'p');
 }
 export { clearOptions }
 
