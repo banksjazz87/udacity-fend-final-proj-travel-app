@@ -1,3 +1,10 @@
+/**
+ * 
+ * @param {*} start, date. 
+ * @param {*} end, date.
+ * @details this function mainly converts the dates into unix time and then converts it down to number of days.
+ * @returns the unix time, and then updates the newOptions object with a key of tripLength.  tripLengthToUi() is then called. 
+ */
 const tripLength = (start, end) => {
     const begin = new Date(start.replace(/-/g, ","));
     const finish = new Date(end.replace(/-/g, ","));
@@ -10,18 +17,23 @@ const tripLength = (start, end) => {
     let hours = minutes / 60;
     let days = hours / 24;
 
-    console.log("final answer issssss" + parseInt(days + 1));
     MyLib.newOptions.tripLength = parseInt(days + 1);
 
-    tripLengthToUi(MyLib.newOptions.tripLength,
+    return tripLengthToUi(MyLib.newOptions.tripLength,
         MyLib.newOptions.place,
         MyLib.newOptions.state,
         MyLib.newOptions.country, )
 }
 
-export { tripLength }
-
-//Function to render the tripLength to the DOM
+/**
+ * 
+ * @param {*} value 
+ * @param {*} place 
+ * @param {*} state 
+ * @param {*} country 
+ * @details takes 4 parameters supplied by the newOptions object, and then updates the UI with the information pulled from the newOptions object.
+ * @returns an updated UI with the trip length.
+ */
 const tripLengthToUi = (value, place, state, country) => {
 
     //Create div and append it at the top of the output
@@ -29,9 +41,9 @@ const tripLengthToUi = (value, place, state, country) => {
 
     let day = "";
     if (value > 1) {
-        day = ' Days Trip';
+        day = ' Days';
     } else {
-        day = ' Day Trip'
+        day = ' Day'
     }
 
     lengthHeader.textContent = value + day;
@@ -56,3 +68,5 @@ const tripLengthToUi = (value, place, state, country) => {
     placeLocation.insertAdjacentElement('afterend', stCntry);
 
 }
+
+export { tripLength }

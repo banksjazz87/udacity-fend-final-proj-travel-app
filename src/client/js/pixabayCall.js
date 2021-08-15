@@ -64,7 +64,7 @@ const checkForZero = (value, total, arr, url) => {
  * 
  * @param {*} value, image href from the pixabay API 
  * @details a setTimeout function is called to time when a picture is added to the UI.
- * @returns renders the image from the pixabay API call and also renders the logo pic for the pixabay API.
+ * @returns renders the image from the pixabay API call and also renders the logo pic and link to the pixabay API.
  */
 const pixabayPic = (value) => {
     const container = document.getElementById('location_pic');
@@ -80,16 +80,19 @@ const pixabayPic = (value) => {
     const pixabayLink = document.createElement('a');
     pixabayLink.setAttribute('href', 'https://pixabay.com/');
     pixabayLink.setAttribute('target', 'blank');
-    //logo.appendChild(pixabayLink);
+    pixabayLink.appendChild(logo);
 
     setTimeout(() => {
-        container.appendChild(pic)
-        container.appendChild(logo);
-        logo.appendChild(pixabayLink);
+        container.appendChild(pic);
+        container.appendChild(pixabayLink);
     }, 1000);
 }
 
-//create a new index for the image url
+/**
+ * 
+ * @param {*} value, href from the pixabay api call.
+ * @returns an updated newOptions objecte, with a key of 'picUrl', along with the src value.
+ */
 const pixIndex = (value) => {
     MyLib.newOptions.picUrl = value;
 
@@ -98,4 +101,4 @@ const pixIndex = (value) => {
     MyLib.postData('http://localhost:3080/allCurrentData', MyLib.newOptions);
 }
 
-export { pixCall, }
+export { pixCall }

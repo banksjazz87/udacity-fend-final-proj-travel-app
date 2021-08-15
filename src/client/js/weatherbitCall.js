@@ -1,4 +1,13 @@
-//Fetch call for the weatherbit api
+/**
+ * 
+ * @param {*} key 
+ * @param {*} url 
+ * @param {*} lat 
+ * @param {*} long 
+ * @param {*} start 
+ * @param {*} end 
+ * @returns async fetch call that returns data from the weatherbit API, although, I ended up using the visual crossing API.
+ */
 const weatherbit = async(key, url, lat, long, start, end) => {
     const response = await fetch(url + lat + "," + long + "/" + start + "/" + end + "?key=" + key);
 
@@ -10,46 +19,41 @@ const weatherbit = async(key, url, lat, long, start, end) => {
         console.log('error', error);
     }
 }
-export { weatherbit }
 
-//Update the UI with the weather info
-const updateWeather = (current) => {
-    const container = document.getElementById('weather');
-
-    const output = document.createElement('h1');
-    output.textContent = current;
-
-    container.appendChild('output');
-}
-
-
-//This function is an event listener on the start date input, and sets the newOptions object to the new values, set by the user
+/**
+ * 
+ * @param {*} element, id value.
+ * @details takes the value selected by the user. 
+ * @returns an updated newOptions object with a startMonth, startDay, startDate
+ */
 const startDate = (element) => {
     let wantedDate = document.getElementById(element);
 
     MyLib.newOptions.startMonth = wantedDate.value[5] + wantedDate.value[6];
     MyLib.newOptions.startDay = wantedDate.value[8] + wantedDate.value[9];
-    //MyLib.newOptions.startDate = MyLib.newOptions.startMonth + '-' + MyLib.newOptions.startDay;
 
     MyLib.newOptions.startDate = wantedDate.value;
-    console.log(wantedDate.value);
+
+    return MyLib.newOptions.startDate;
 
 }
-export { startDate };
 
-//This function will set the endMonth and endDay values for the newOptions object, along with an end date that joins both the endMonth with the endDay with a hyphen.
+/**
+ * 
+ * @param {*} element, id value.
+ * @details takes the value selected by the user. 
+ * @returns an updated newOptions object with a startMonth, startDay, startDate
+ */
 const endDate = (element) => {
     let wantedDate = document.getElementById(element);
 
     MyLib.newOptions.endMonth = wantedDate.value[5] + wantedDate.value[6];
     MyLib.newOptions.endDay = wantedDate.value[8] + wantedDate.value[9];
-    //MyLib.newOptions.endDate = MyLib.newOptions.endMonth + '-' + MyLib.newOptions.endDay;
 
     MyLib.newOptions.endDate = wantedDate.value;
-    console.log(wantedDate.value);
+    return MyLib.newOptions.endDate;
 
 }
-export { endDate };
 
 const weatherCall = () => {
     MyLib.startDate('start_date');
@@ -154,3 +158,5 @@ const createWeatherCard = (month, day, high, low, precip, snow, weatherArr) => {
     }
     return MyLib.newOptions;
 }
+
+export { weatherbit, startDate, endDate }
