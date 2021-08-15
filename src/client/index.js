@@ -1,21 +1,29 @@
 import { postData } from './js/post.js'
+
 import { keysInfo } from './js/app.js'
+
 import { geonamesApi } from './js/geoCall.js'
 import { clearOptions } from './js/geoCall.js'
 import { displayedGeo } from './js/geoCall.js'
-import { weatherbit } from './js/weatherbitCall.js'
-import { startDate } from './js/weatherbitCall.js'
 import { newOptions } from './js/geoCall.js'
 import { currentOptions } from './js/geoCall.js'
+import { clearItems } from './js/geoCall.js'
+
+import { weatherbit } from './js/weatherbitCall.js'
+import { startDate } from './js/weatherbitCall.js'
 import { endDate } from './js/weatherbitCall.js'
 import { weatherCall } from './js/weatherbitCall.js'
+
 import { returnGeo } from './js/eventListeners.js'
-import { clearItems } from './js/geoCall.js'
 import { submitFunction } from './js/eventListeners.js'
 import { clearFunction } from './js/eventListeners'
+
 import { pixCall } from './js/pixabayCall.js'
+
 import { tripLength } from './js/trip.js'
+
 import './styles/style.scss'
+
 const cloudy = new URL('./assets/cloudy_clipArtLibrary.jpeg',
     import.meta.url);
 const logo = new URL('./assets/pixaby_logo.png',

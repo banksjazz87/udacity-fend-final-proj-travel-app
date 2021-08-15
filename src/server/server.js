@@ -25,59 +25,40 @@ const keys = {
     visCrossKey: process.env.VISUALCROSSING_KEY
 }
 
-//console.log(process.env.GEONAMES_HOST);
-
+//static server
 app.use(express.static('dist'));
 
+//sends the dist/index.html file when a get request is made to the root.
 app.get('/', (req, res) => {
     res.sendFile('dist/index.html');
-    //res.sendFile("index.html", { root: "dist" })
 });
 
+//sends the key and URL data from the .env file
 app.get('/keyData', (req, res) => {
     res.send(keys);
 })
 
 
-
+//A generic console.log statement to ensure that the server is running
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`)
-    console.log(keys.geonames)
-    console.log(keys.weatherbit)
-    console.log(keys.pixabay)
-    console.log(keys.visCrossUrl, keys.visCrossKey)
 })
-
-//An empty object to hold all of the data that is being pulled from the user and the various apis
-/*let currentData = {
-    key: '',
-    place: '',
-    state: '',
-    lat: '',
-    long: '',
-    date: ''
-}*/
-let currentData = {};
 
 //An empty array to hold all of the data that has been submitted
 let allData = [];
 
+//A post request that sends the allData array, when the a post request is made.
 app.post("/allCurrentData", function(req, res) {
-    /*for (let i = 0; i < req.body.values.length; i++) {
-        allData.push(Object.entries(req.body.values)[i])
-    }*/
     allData.push(req.body);
     res.send(allData);
-    console.log(allData);
 })
 
+//sends the allData array when a get request is made to /allCurrentData
 app.get("/allCurrentData", (req, res) => {
     res.send(allData);
-    console.log(allData);
 })
 
 //Returns all userData
 app.get('/allData', function(req, res) {
     res.send(allData);
-    console.log(allData);
 })
