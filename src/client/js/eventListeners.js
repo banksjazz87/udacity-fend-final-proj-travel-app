@@ -32,7 +32,7 @@ const submitFunction = () => {
     submitBttn.addEventListener('click', (e) => {
         e.preventDefault();
 
-        MyLib.clearItems('card', 'img');
+        MyLib.clearItems('card', 'img', 'p');
 
         Promise.all([MyLib.weatherCall(), MyLib.pixCall()])
     })

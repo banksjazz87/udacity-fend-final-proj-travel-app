@@ -4,7 +4,7 @@
     "description": "travel app for udacity",
     "main": "dist/main.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
+        "test": "jest",
         "express-server": "node src/server/server.js",
         "build-prod": "webpack --config webpack.prod.js",
         "build-dev": "webpack serve --config webpack.dev.js --open"
@@ -29,7 +29,6 @@
         "css-loader": "^5.2.6",
         "file-loader": "^6.2.0",
         "html-webpack-plugin": "^5.3.1",
-        "jest": "^27.0.6",
         "loader": "^2.1.1",
         "mini-css-extract-plugin": "^1.6.0",
         "node-sass": "^6.0.1",
