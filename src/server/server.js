@@ -38,11 +38,14 @@ app.get('/keyData', (req, res) => {
     res.send(keys);
 })
 
-
 //A generic console.log statement to ensure that the server is running
-app.listen(port, () => {
+app.listen(port, serverRunning);
+
+const serverRunning = () => {
     console.log(`Server is running on port ${port}`)
-})
+};
+
+export { serverRunning }
 
 //An empty array to hold all of the data that has been submitted
 let allData = [];
