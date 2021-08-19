@@ -65,3 +65,5 @@ app.get("/allCurrentData", (req, res) => {
 app.get('/allData', function(req, res) {
     res.send(allData);
 })
+
+export { app }
