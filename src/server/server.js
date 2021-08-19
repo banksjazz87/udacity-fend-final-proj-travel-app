@@ -39,19 +39,18 @@ app.get('/keyData', (req, res) => {
 })
 
 //A generic console.log statement to ensure that the server is running
-app.listen(port, serverRunning);
-
-const serverRunning = () => {
+app.listen(port, () => {
     console.log(`Server is running on port ${port}`)
-};
-
-export { serverRunning }
+});
 
 //An empty array to hold all of the data that has been submitted
 let allData = [];
+let currentData = {};
 
 //A post request that sends the allData array, when the a post request is made.
 app.post("/allCurrentData", function(req, res) {
+    /* currentData.test = req.body.key;
+     allData.push(currentData);*/
     allData.push(req.body);
     res.send(allData);
 })
@@ -65,5 +64,3 @@ app.get("/allCurrentData", (req, res) => {
 app.get('/allData', function(req, res) {
     res.send(allData);
 })
-
-export { app }

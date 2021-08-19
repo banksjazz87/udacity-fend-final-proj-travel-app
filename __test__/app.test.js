@@ -11,10 +11,10 @@ describe('testing api for receiving data from my server', () => {
     })
 
     it('calls my server and returns data to me', () => {
-        fetch.mockResponseOnce(JSON.stringify({ data: '12345' }))
+        fetch.mockResponseOnce(JSON.stringify({ data: 'robot' }))
 
         keysInfo().then(res => {
-            expect(res.data).toEqual('12345')
+            expect(res.data).toEqual('robot')
         })
     })
 })
