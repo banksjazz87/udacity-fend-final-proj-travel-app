@@ -49,17 +49,16 @@ let currentData = {};
 
 //A post request that sends the allData array, when the a post request is made.
 app.post("/allCurrentData", function(req, res) {
-    /*currentData.place = req.body.place;
+    currentData.place = req.body.place;
     currentData.state = req.body.state;
     currentData.country = req.body.country;
     currentData.lat = req.body.lat;
     currentData.long = req.body.long;
     currentData.startDate = req.body.startDate;
     currentData.endDate = req.body.endDate;
-    currentData.picUrl = req.body.picUrl;*/
-    /* currentData.test = req.body.key;
-     allData.push(currentData);*/
-    allData.push(req.body);
+    currentData.picUrl = req.body.picUrl;
+    currentData.weather = req.body.weatherInfo
+    allData.push(currentData);
     res.send(allData);
 })
 

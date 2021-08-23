@@ -23,6 +23,7 @@ import { pixCall } from './js/pixabayCall.js'
 import { tripLength } from './js/trip.js'
 
 import './styles/style.scss'
+import './styles/library.scss'
 
 const cloudy = new URL('./assets/cloudy_clipArtLibrary.jpeg',
     import.meta.url);
