@@ -8,6 +8,44 @@ body {
     font-family: $font;
 }
 
+form {
+    label {
+        text-align: left;
+    }
+    display: flex;
+    flex-direction: column;
+    width: 40vw;
+    margin: auto;
+    input {
+        margin-top: .5em;
+    }
+    button {
+        width: 10vw;
+        margin: auto;
+        margin-top: .5em;
+    }
+}
+
+select {
+    width: 40vw;
+    margin-top: .5em;
+}
+
+#date_input {
+    display: flex;
+    flex-direction: column;
+    margin-top: .5em;
+    label {
+        margin-top: .5em;
+    }
+    input {
+        margin-top: .5em;
+    }
+    button {
+        margin-top: .5em;
+    }
+}
+
 #logo_pic {
     width: 4em;
     height: 4em;
