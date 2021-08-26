@@ -55,7 +55,7 @@ const displayedGeo = (data) => {
     selectContainer.appendChild(select);
 
     let headerOfOptions = document.createElement('option');
-    headerOfOptions.textContent = "Please choose from one of the following...";
+    headerOfOptions.textContent = "Please select from the following...";
     select.appendChild(headerOfOptions);
 
     for (let i = 0; i < data.length; i++) {
