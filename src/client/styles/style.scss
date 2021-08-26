@@ -1,6 +1,6 @@
 @import "library";
 body {
-    background-color: $black;
+    background-color: $base-color;
     margin-top: 0;
     height: 100vh;
     width: 100vw;
@@ -9,13 +9,20 @@ body {
 }
 
 form {
+    display: flex;
+    flex-direction: column;
+    border-width: .25em;
+    border-style: solid;
+    border-color: $red;
+    width: 40vw;
+    padding-top: 1em;
+    padding-right: 10em;
+    padding-left: 10em;
+    padding-bottom: 1em;
+    margin: auto;
     label {
         text-align: left;
     }
-    display: flex;
-    flex-direction: column;
-    width: 40vw;
-    margin: auto;
     input {
         margin-top: .5em;
     }
@@ -34,8 +41,16 @@ select {
 
 #date_input {
     display: flex;
-    flex-direction: column;
     margin-top: .5em;
+    flex-direction: column;
+    #start {
+        display: flex;
+        flex-direction: column;
+    }
+    #end {
+        display: flex;
+        flex-direction: column;
+    }
     label {
         margin-top: .5em;
     }
