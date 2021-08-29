@@ -39,14 +39,7 @@ const tripLengthToUi = (value, place, state, country) => {
     //Create div and append it at the top of the output
     const lengthHeader = document.createElement('p');
 
-    let day = "";
-    if (value > 1) {
-        day = ' Days';
-    } else {
-        day = ' Day'
-    }
-
-    lengthHeader.textContent = value + day;
+    lengthHeader.textContent = value + ' Day Vacation';
     lengthHeader.setAttribute('id', "length_header");
     const output = document.getElementById('output_container');
     output.insertAdjacentElement('afterbegin', lengthHeader);
