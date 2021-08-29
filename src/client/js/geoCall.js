@@ -111,6 +111,7 @@ const clearOptions = () => {
     const dates = document.getElementById('date_input');
     dates.style.display = 'none';
 
+    removeDiv('locationPic');
     MyLib.clearItems('card', 'img', 'select', 'p');
 }
 
@@ -140,6 +141,19 @@ const clearItems = (...args) => {
         for (let j = 0; j < items.length; j++) {
             items[j].remove();
         }
+    }
+}
+
+/**
+ * 
+ * @param {*} name 
+ * @details takes the name of a potential id for a div, and checks to see if the div exists, if it exists, the div will be removed, otherwise, nothing will happen.
+ * @returns removes listed div from the DOM.
+ */
+const removeDiv = (name) => {
+    if (document.getElementById(name)) {
+        let div = document.getElementById(name);
+        div.remove();
     }
 }
 

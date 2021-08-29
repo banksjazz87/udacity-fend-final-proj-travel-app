@@ -67,24 +67,27 @@ const checkForZero = (value, total, arr, url) => {
  * @returns renders the image from the pixabay API call and also renders the logo pic and link to the pixabay API.
  */
 const pixabayPic = (value) => {
-    const container = document.getElementById('location_pic');
+    const container = document.createElement('div');
+    container.setAttribute('id', 'location_pic');
 
     const pic = document.createElement('img');
     pic.setAttribute('src', value);
     pic.setAttribute('id', 'pixabay_pic');
+    container.appendChild(pic);
 
     const logo = document.createElement('img');
     logo.setAttribute('src', MyLib.logo);
     logo.setAttribute('id', 'logo_pic');
+    container.appendChild(logo);
 
     const pixabayLink = document.createElement('a');
     pixabayLink.setAttribute('href', 'https://pixabay.com/');
     pixabayLink.setAttribute('target', 'blank');
     pixabayLink.appendChild(logo);
+    container.appendChild(pixabayLink);
 
     setTimeout(() => {
-        container.appendChild(pic);
-        container.appendChild(pixabayLink);
+        document.querySelector('body').appendChild(container);
     }, 1000);
 }
 
