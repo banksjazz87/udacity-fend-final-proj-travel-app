@@ -165,7 +165,7 @@ const createWeatherCard = (month, day, high, low, precip, snow, weatherArr) => {
         newCard.appendChild(highParagraph);
 
         const lowParagraph = document.createElement('p');
-        lowParagraph.textContent = 'Low of ' + weatherArr[i][low];
+        lowParagraph.textContent = 'Low of: ' + weatherArr[i][low];
         newCard.appendChild(lowParagraph);
 
         weatherContainer.appendChild(newCard);

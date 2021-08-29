@@ -33,7 +33,7 @@ form {
     }
     button {
         margin: auto;
-        margin-top: .5em;
+        margin-top: 1em;
     }
     select {
         width: 20vw;
@@ -84,7 +84,7 @@ button:active {
         margin-top: .5em;
     }
     button {
-        margin-top: .5em;
+        margin-top: 1em;
     }
 }
 
@@ -97,6 +97,11 @@ button:active {
         display: flex;
         flex-direction: column;
         width: 20vw;
+        img {
+            height: 10vh;
+            width: 7vw;
+            margin: auto;
+        }
     }
 }
 
@@ -107,7 +112,8 @@ button:active {
 }
 
 #output_container {
-    padding: 1em 1em 1em 1em;
+    padding-top: .25em;
+    padding-bottom: .25em;
     background-color: $red;
     display: flex;
     flex-wrap: wrap;
@@ -121,10 +127,29 @@ button:active {
     color: white;
     line-height: .25em;
     #length_header {
-        font-size: 2em;
-        margin-bottom: 1.5em;
+        font-size: 1.5em;
+    }
+    #place_location {
+        text-shadow: 1px 1px black;
+        font-size: 1.35em;
     }
     p {
-        font-size: 1.5em;
+        font-size: 1.25em;
+    }
+}
+
+#location_pic {
+    display: flex;
+    flex-direction: column;
+    img {
+        height: 50vh;
+        width: 60vw;
+        margin: auto;
+    }
+    #logo_pic {
+        width: 4em;
+        height: 4em;
+        text-align: right;
+        margin-left: 55vw;
     }
 }
