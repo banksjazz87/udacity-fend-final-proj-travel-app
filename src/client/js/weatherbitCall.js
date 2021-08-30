@@ -174,4 +174,5 @@ const createWeatherCard = (month, day, high, low, precip, snow, weatherArr) => {
     return MyLib.newOptions;
 }
 
+
 export { weatherbit, startDate, endDate, weatherCall }

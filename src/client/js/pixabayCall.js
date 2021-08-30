@@ -88,6 +88,7 @@ const pixabayPic = (value) => {
 
     setTimeout(() => {
         document.querySelector('body').appendChild(container);
+        document.getElementById('output_container').scrollIntoView({ block: 'start', behavior: 'smooth' });
     }, 1000);
 }
 
