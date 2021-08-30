@@ -1,9 +1,9 @@
 @import "library";
 body {
     background-color: $base-color;
-    margin-top: 1em;
-    height: 100vh;
-    width: 100vw;
+    margin-top: 0;
+    height: 100%;
+    width: 100%;
     text-align: center;
     font-family: $font;
 }
@@ -161,23 +161,28 @@ button:active {
 #location_pic {
     display: flex;
     flex-direction: column;
-    background-color: $black;
+    /*background-color: $black;
+    z-index: 1;
     width: 70vw;
-    margin: auto;
+    margin: auto;*/
+    position: relative;
     img {
         height: 50vh;
-        width: 60vw;
+        width: 90vw;
+        position: relative;
+        z-index: 2;
         margin: auto;
-        padding-top: 1em;
-        padding-right: 2em;
-        padding-left: 2em;
+        border-style: solid;
+        border-color: $button;
+        box-shadow: 1px 3px gray;
     }
     #logo_pic {
         width: 4em;
         height: 4em;
-        text-align: right;
-        margin-left: 55vw;
-        margin-top: 0;
-        padding-bottom: .5em;
+        position: absolute;
+        z-index: 3;
+        bottom: 0;
+        right: 0;
+        border-style: none;
     }
 }
