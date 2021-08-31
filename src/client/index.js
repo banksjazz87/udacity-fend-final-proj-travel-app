@@ -24,6 +24,7 @@ import { tripLength } from './js/trip.js'
 
 import './styles/style.scss'
 import './styles/library.scss'
+import './styles/queries.scss'
 
 const cloudy = new URL('./assets/cloudy_clipArtLibrary.jpeg',
     import.meta.url);

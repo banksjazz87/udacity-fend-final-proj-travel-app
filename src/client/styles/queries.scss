@@ -1,0 +1,20 @@
+@media (max-width: 700px) {
+    #form_container {
+        width: 90vw;
+    }
+    form {
+        width: 70vw;
+        select {
+            width: 70vw;
+        }
+    }
+    #date_input {
+        margin: auto;
+        #start {
+            width: 70vw;
+        }
+        #end {
+            width: 70vw;
+        }
+    }
+}

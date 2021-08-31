@@ -19,7 +19,7 @@ body {
     border-color: $button;
     box-shadow: 1px 3px gray;
     width: 45vw;
-    height: 40vh;
+    height: 40%;
     margin: auto;
 }
 
@@ -28,6 +28,7 @@ form {
     flex-direction: column;
     width: 20vw;
     padding-top: 1em;
+    padding-bottom: 1em;
     margin: auto;
     label {
         text-align: left;
@@ -69,6 +70,7 @@ button:active {
     display: flex;
     margin-top: .5em;
     flex-direction: column;
+    padding-bottom: 1em;
     #start {
         display: flex;
         flex-direction: column;
@@ -89,6 +91,7 @@ button:active {
     }
     button {
         margin-top: 1em;
+        margin-bottom: .5em;
     }
 }
 
