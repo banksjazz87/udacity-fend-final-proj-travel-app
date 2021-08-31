@@ -161,20 +161,17 @@ button:active {
 #location_pic {
     display: flex;
     flex-direction: column;
-    /*background-color: $black;
     z-index: 1;
-    width: 70vw;
-    margin: auto;*/
+    width: 95vw;
+    margin: auto;
     position: relative;
-    img {
+    #pixabay_pic {
         height: 50vh;
-        width: 90vw;
+        width: 95vw;
         position: relative;
         z-index: 2;
         margin: auto;
-        border-style: solid;
-        border-color: $button;
-        box-shadow: 1px 3px gray;
+        border-radius: 2%;
     }
     #logo_pic {
         width: 4em;
@@ -183,6 +180,16 @@ button:active {
         z-index: 3;
         bottom: 0;
         right: 0;
-        border-style: none;
+        border-radius: 20%;
+        &:hover {
+            border-style: solid;
+            border-width: .25em;
+            border-color: $button;
+        }
+        &:active {
+            border-style: solid;
+            border-width: .5em;
+            border-color: $red;
+        }
     }
 }
