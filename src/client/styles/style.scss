@@ -8,7 +8,7 @@ body {
     font-family: $font;
 }
 
-#header {
+#title {
     margin-top: 1em;
 }
 
@@ -158,6 +158,9 @@ button:active {
     }
     p {
         font-size: 1.25em;
+    }
+    #state_country {
+        font-size: 1em;
     }
 }
 

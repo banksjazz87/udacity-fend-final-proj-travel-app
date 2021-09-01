@@ -20,8 +20,14 @@
     #weather {
         card {
             width: 25vw;
+            h2 {
+                font-size: 1.2em;
+            }
             img {
                 width: 20vw;
+            }
+            p {
+                font-size: .7em;
             }
         }
     }

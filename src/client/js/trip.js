@@ -53,7 +53,7 @@ const tripLengthToUi = (value, place, state, country) => {
     if (state === "") {
         stateCountry = country;
     } else {
-        stateCountry = state + ", " + country
+        stateCountry = `${state}, ${country}`;
     }
     const stCntry = document.createElement('p');
     stCntry.textContent = stateCountry;
