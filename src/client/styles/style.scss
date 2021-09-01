@@ -8,6 +8,14 @@ body {
     font-family: $font;
 }
 
+header {
+    background-color: $black;
+    height: 1em;
+    width: 100vw;
+    top: 0;
+    left: 0;
+}
+
 #title {
     margin-top: 1em;
 }
@@ -198,4 +206,16 @@ button:active {
             border-color: $red;
         }
     }
+}
+
+footer {
+    height: 4em;
+    width: 100vw;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    background-color: $black;
 }

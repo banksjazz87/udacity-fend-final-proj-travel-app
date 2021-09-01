@@ -61,3 +61,13 @@ export {
     snow,
     sunny
 }
+
+/*
+//Event listener added to the search button
+returnGeo();
+
+//Event listener added to the submit button
+submitFunction();
+
+//This event listener will clear the current options menu
+clearFunction();*/
