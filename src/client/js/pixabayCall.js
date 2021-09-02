@@ -87,9 +87,14 @@ const pixabayPic = (value) => {
     container.appendChild(pixabayLink);
 
     setTimeout(() => {
-        document.querySelector('body').appendChild(container);
+        const footer = document.querySelector('footer');
+
+        document.querySelector('body').insertBefore(container, footer);
         document.getElementById('output_container').scrollIntoView({ block: 'start', behavior: 'smooth' });
+        footer.style.opacity = '1';
+        //document.getElementById('footer_text').style.display = 'flex';
     }, 1000);
+
 }
 
 /**
