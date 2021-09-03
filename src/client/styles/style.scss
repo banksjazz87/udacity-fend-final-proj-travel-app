@@ -209,8 +209,9 @@ button:active {
 }
 
 footer {
-    height: 4em;
-    width: 100vw;
+    height: 5em;
+    position: relative;
+    width: 100%;
     left: 0;
     bottom: 0;
     display: flex;
@@ -218,6 +219,7 @@ footer {
     justify-content: center;
     color: white;
     background-color: $black;
+    margin-top: 1em;
     p {
         color: white;
     }

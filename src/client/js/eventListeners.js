@@ -46,7 +46,7 @@ const submitFunction = () => {
 const clearFunction = () => {
     const clearButton = document.getElementById('clear');
 
-    document.querySelector('footer').style.display = 'none';
+    document.querySelector('footer').style.opacity = '0';
 
     clearButton.addEventListener('click', (e) => {
         e.preventDefault();

@@ -89,6 +89,12 @@ const pixabayPic = (value) => {
     setTimeout(() => {
         const footer = document.querySelector('footer');
 
+        const footerText = document.createElement('p');
+        const newLine = document.createElement('br');
+        footerText.setAttribute('id', 'footer_text');
+        footerText.textContent = "This application was created by Chris Banks";
+        footer.appendChild(footerText);
+
         document.querySelector('body').insertBefore(container, footer);
         document.getElementById('output_container').scrollIntoView({ block: 'start', behavior: 'smooth' });
         footer.style.opacity = '1';
