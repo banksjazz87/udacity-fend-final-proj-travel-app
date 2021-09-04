@@ -26,9 +26,7 @@ const pixabayApi = async(key, url, place) => {
     } else {
         addPlusSign = place.join('+').toString();
     }
-    console.log(place.length);
 
-    console.log((url + key + "&q=" + addPlusSign + "&image_type=photo"));
     const response = await fetch(url + key + "&q=" + place + "&image_type=photo");
 
     try {
@@ -63,8 +61,8 @@ const checkForZero = (value, total, arr, url) => {
 /**
  * 
  * @param {*} value, image href from the pixabay API 
- * @details a setTimeout function is called to time when a picture is added to the UI.
- * @returns renders the image from the pixabay API call and also renders the logo pic and link to the pixabay API.
+ * @details a setTimeout function is called to time when a picture is added to the UI, as well as footer content.
+ * @returns renders the image from the pixabay API call and also renders the logo pic and link to the pixabay API, and updates the footer content.
  */
 const pixabayPic = (value) => {
     const container = document.createElement('div');
@@ -89,16 +87,20 @@ const pixabayPic = (value) => {
     setTimeout(() => {
         const footer = document.querySelector('footer');
 
-        const footerText = document.createElement('p');
-        const newLine = document.createElement('br');
-        footerText.setAttribute('id', 'footer_text');
-        footerText.textContent = "This application was created by Chris Banks";
-        footer.appendChild(footerText);
+        const footerFirstLine = document.createElement('p');
+        footerFirstLine.setAttribute('id', 'footer_text');
+        footerFirstLine.textContent = "This application was created";
+        footer.appendChild(footerFirstLine);
+
+        const footerSecondLine = document.createElement('p');
+        const footerBreak = document.createElement('br');
+        footerSecondLine.textContent = "by Chris Banks";
+        footerFirstLine.appendChild(footerBreak);
+        footerFirstLine.appendChild(footerSecondLine);
 
         document.querySelector('body').insertBefore(container, footer);
         document.getElementById('output_container').scrollIntoView({ block: 'start', behavior: 'smooth' });
         footer.style.opacity = '1';
-        //document.getElementById('footer_text').style.display = 'flex';
     }, 1000);
 
 }

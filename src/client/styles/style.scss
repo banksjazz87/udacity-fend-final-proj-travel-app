@@ -2,6 +2,7 @@
 body {
     background-color: $base-color;
     margin-top: 0;
+    margin: 0;
     height: 100%;
     width: 100%;
     text-align: center;
@@ -34,7 +35,7 @@ header {
 form {
     display: flex;
     flex-direction: column;
-    width: 20vw;
+    width: 40vw;
     padding-top: 1em;
     padding-bottom: 1em;
     margin: auto;
@@ -46,10 +47,10 @@ form {
     }
     button {
         margin: auto;
-        margin-top: 1em;
+        margin-top: 1.5em;
     }
     select {
-        width: 20vw;
+        width: 40vw;
         margin-top: 1em;
         font-size: .8em;
     }
@@ -78,17 +79,17 @@ button:active {
     display: flex;
     margin-top: .5em;
     flex-direction: column;
-    padding-bottom: 1em;
+    padding-bottom: .5em;
     #start {
         display: flex;
         flex-direction: column;
-        width: 20vw;
+        width: 40vw;
         margin: auto;
     }
     #end {
         display: flex;
         flex-direction: column;
-        width: 20vw;
+        width: 40vw;
         margin: auto;
     }
     label {
@@ -98,8 +99,7 @@ button:active {
         margin-top: .5em;
     }
     button {
-        margin-top: 1em;
-        margin-bottom: .5em;
+        margin-top: 1.5em;
     }
 }
 
@@ -117,16 +117,12 @@ button:active {
         border-color: $button;
         border-radius: 5%;
         box-shadow: 1px 3px gray;
-        padding-bottom: .5em;
+        padding: 1em 1em 1em 1em;
         margin-bottom: 1em;
         img {
             height: 10vh;
             width: 7vw;
             margin: auto;
-            /* border-radius: 10%;
-            border-style: solid;
-            border-width: .15em;
-            border-color: $button;*/
         }
         p {
             line-height: .5em;
@@ -145,17 +141,12 @@ button:active {
 #output_container {
     padding-top: .25em;
     padding-bottom: .25em;
-    //background-color: $red;
     display: flex;
     flex-wrap: wrap;
     width: 70vw;
     flex-direction: column;
     justify-content: center;
     margin: 1em auto auto auto;
-    /*border-style: solid;
-    border-width: .15em;
-    border-color: $black;
-    color: white;*/
     line-height: .25em;
     #length_header {
         font-size: 1.5em;
@@ -209,7 +200,6 @@ button:active {
 }
 
 footer {
-    height: 5em;
     position: relative;
     width: 100%;
     left: 0;
@@ -222,5 +212,8 @@ footer {
     margin-top: 1em;
     p {
         color: white;
+        margin-top: 1em;
+        padding-bottom: .1em;
+        font-size: .9em;
     }
 }

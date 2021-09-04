@@ -33,7 +33,6 @@ const weatherbit = async(key, url, lat, long, start, end) => {
 
     try {
         const data = await response.json();
-        console.log("weather", data)
         return data;
     } catch (error) {
         console.log('error', error);
