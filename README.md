@@ -27,7 +27,7 @@ The use of this application is to provide users with valuable weather informatio
     >`npm run build-prod`
 
 5. In the terminal, start the server by typing:
-    >`npm run start`
+    >`npm run express-server`
 
 6. Open your browser and go to: 
     >`localhost:3080`
