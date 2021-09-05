@@ -62,7 +62,7 @@ export {
     sunny
 }
 
-/*
+
 //Event listener added to the search button
 returnGeo();
 
@@ -70,4 +70,4 @@ returnGeo();
 submitFunction();
 
 //This event listener will clear the current options menu
-clearFunction();*/
+clearFunction();
