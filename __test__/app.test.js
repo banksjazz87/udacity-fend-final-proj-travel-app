@@ -1,6 +1,5 @@
 import { enableFetchMocks } from 'jest-fetch-mock'
 enableFetchMocks()
-import "core-js/stable";
 import "regenerator-runtime/runtime";
 import { keysInfo } from '../src/client/js/app.js';
 
