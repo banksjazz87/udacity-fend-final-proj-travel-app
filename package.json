@@ -4,10 +4,7 @@
     "description": "travel app for udacity",
     "main": "dist/main.js",
     "scripts": {
-        "test": "cross-env NODE_ENV=test jest --testTimeout=10000",
-        "pretest": "cross-env NODE_ENV=test npm run migrate:reset",
-        "migrate": "npx sequelize db:migrate",
-        "migrate:reset": "npx sequelize db:migrate:undo:all && npm run migrate",
+        "test": "jest",
         "express-server": "node src/server/server.js",
         "build-prod": "webpack --config webpack.prod.js",
         "build-dev": "webpack serve --config webpack.dev.js --open"
