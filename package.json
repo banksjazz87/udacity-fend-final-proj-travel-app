@@ -5,7 +5,7 @@
     "main": "dist/main.js",
     "scripts": {
         "test": "jest",
-        "start": "build-prod --express-server",
+        "start": "npm run build-prod && npm run express-server",
         "express-server": "node src/server/server.js",
         "build-prod": "webpack --config webpack.prod.js",
         "build-dev": "webpack serve --config webpack.dev.js --open"
