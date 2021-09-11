@@ -4,9 +4,6 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const port = process.env.PORT || 3080;
 
-if (process.env.NODE_ENV == 'development')
-    require('dotenv').config({ silent: true });
-
 //setting up an instance of .env
 const dotenv = require('dotenv');
 dotenv.config();
