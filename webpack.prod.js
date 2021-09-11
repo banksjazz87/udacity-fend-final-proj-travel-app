@@ -11,6 +11,7 @@ module.exports = {
     entry: './src/client/index.js',
     output: {
         filename: "mainApp.js",
+        path: path.resolve(__dirname, "dist"),
         library: {
             name: 'MyLib',
             type: 'var'
