@@ -6,6 +6,7 @@
     "scripts": {
         "test": "jest",
         "start": "npm run express-server",
+        "heroku-postbuild": "npm run build-prod",
         "express-server": "node src/server/server.js",
         "build-prod": "webpack --config webpack.prod.js",
         "build-dev": "webpack serve --config webpack.dev.js --open"

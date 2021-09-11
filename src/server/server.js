@@ -26,7 +26,8 @@ const keys = {
 }
 
 //static server
-app.use(express.static('dist'));
+//app.use(express.static('dist'));
+app.use(express.static(__dirname + '/dist'));
 app.set('port', process.env.PORT || port);
 
 //sends the dist/index.html file when a get request is made to the root.
