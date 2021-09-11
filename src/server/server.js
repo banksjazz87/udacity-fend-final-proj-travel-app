@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 const bodyParser = require('body-parser');
-const port = process.env.PORT || 3080;
+const port = 3080;
 
 //setting up an instance of .env
 const dotenv = require('dotenv');
@@ -39,7 +39,7 @@ app.get('/keyData', (req, res) => {
 })
 
 //A generic console.log statement to ensure that the server is running
-app.listen(port, () => {
+app.listen(process.env.PORT || port, () => {
     console.log(`Server is running on port ${port}`)
 });
 
