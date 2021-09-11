@@ -2,14 +2,14 @@
     "name": "udacity-fend-final-project-travel-app",
     "version": "1.0.0",
     "engines": {
-        "node": "14.16.0"
+        "node": "14.x"
     },
     "description": "travel app for udacity",
     "main": "dist/main.js",
     "scripts": {
         "test": "jest",
         "start": "node src/server/server.js",
-        "heroku-postbuild": "webpack -p",
+        "heroku-postbuild": "npm run build-prod",
         "express-server": "node src/server/server.js",
         "build-prod": "webpack --config webpack.prod.js",
         "build-dev": "webpack serve --config webpack.dev.js --open"
