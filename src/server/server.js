@@ -3,7 +3,6 @@ const app = express();
 const cors = require('cors');
 const bodyParser = require('body-parser');
 let port = process.env.PORT || 3080;
-const path = require('path');
 
 //setting up an instance of .env
 const dotenv = require('dotenv');
