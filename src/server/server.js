@@ -3,6 +3,7 @@ const app = express();
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const port = process.env.PORT || 3080;
+const path = require('path');
 
 //setting up an instance of .env
 const dotenv = require('dotenv');
@@ -26,7 +27,14 @@ const keys = {
 }
 
 //static server
-app.use(express.static(__dirname + '/dist'));
+if (process.env.NODE_ENV === 'production') {
+    //line 32 is the same
+    app.use(express.static(__dirname + '/dist'));
+
+    app.get('*', (req, res) => {
+        res.sendFile(path.resolve(__dirname, 'dist', 'index.html'));
+    })
+}
 
 //sends the dist/index.html file when a get request is made to the root.
 app.get('/', (req, res) => {
