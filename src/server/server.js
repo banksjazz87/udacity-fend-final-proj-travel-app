@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 const bodyParser = require('body-parser');
-const port = process.env.PORT || 3080;
+let port = process.env.PORT || 3080;
 const path = require('path');
 
 //setting up an instance of .env
