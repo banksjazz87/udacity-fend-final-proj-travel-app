@@ -37,9 +37,9 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 //sends the dist/index.html file when a get request is made to the root.
-app.get('/', (req, res) => {
+/*app.get('/', (req, res) => {
     res.sendFile('dist/index.html');
-});
+});*/
 
 //sends the key and URL data from the .env file
 app.get('/keyData', (req, res) => {

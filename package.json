@@ -10,7 +10,7 @@
     "scripts": {
         "test": "jest",
         "start": "node src/server/server.js",
-        "heroku-postbuild": "NPM _CONFIG_PRODUCTION=false webpack --config webpack.prod.js",
+        "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false webpack --config webpack.prod.js",
         "express-server": "node src/server/server.js",
         "build-prod": "webpack --config webpack.prod.js",
         "build-dev": "webpack serve --config webpack.dev.js --open"
