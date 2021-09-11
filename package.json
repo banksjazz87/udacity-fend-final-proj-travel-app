@@ -5,7 +5,7 @@
     "main": "dist/main.js",
     "scripts": {
         "test": "jest",
-        "start": "npm run express-server",
+        "start": "node src/server/server.js",
         "heroku-postbuild": "npm run build-prod",
         "express-server": "node src/server/server.js",
         "build-prod": "webpack --config webpack.prod.js",
