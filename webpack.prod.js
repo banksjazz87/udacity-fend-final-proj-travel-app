@@ -17,9 +17,6 @@ module.exports = {
             type: 'var'
         }
     },
-    node: {
-        fs: "empty"
-    },
     optimization: {
         minimizer: [new TerserPlugin({}),
             new OptimizeCSSAssetsPlugin({})
