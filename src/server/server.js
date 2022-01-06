@@ -3,6 +3,7 @@ const app = express();
 const cors = require('cors');
 const bodyParser = require('body-parser');
 let port = process.env.PORT || 3080;
+const path = require('path');
 
 //setting up an instance of .env
 const dotenv = require('dotenv');
@@ -26,12 +27,7 @@ const keys = {
 }
 
 //static server
-app.use(express.static(__dirname + '/dist'));
-
-//sends the dist/index.html file when a get request is made to the root.
-app.get('/', (req, res) => {
-    res.sendFile('dist/index.html');
-});
+app.use('/', express.static('dist'));
 
 //sends the key and URL data from the .env file
 app.get('/keyData', (req, res) => {
