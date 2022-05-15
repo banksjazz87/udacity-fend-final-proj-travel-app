@@ -4,7 +4,7 @@
  */
 
 async function keysInfo() {
-    let response = await fetch("http://localhost:3080/keyData");
+    let response = await fetch("/keyData");
     try {
         const res = await (response.json());
         return res;

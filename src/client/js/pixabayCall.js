@@ -115,7 +115,7 @@ const pixIndex = (value) => {
 
     pixabayPic(value)
 
-    MyLib.postData('http://localhost:3080/allCurrentData', MyLib.newOptions);
+    MyLib.postData('/allCurrentData', MyLib.newOptions);
 }
 
 export { pixCall }
