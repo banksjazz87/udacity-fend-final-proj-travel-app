@@ -73,23 +73,20 @@ submitFunction();
 clearFunction();
 
 //The following function is to test that the service workers are working
-/*if ('serviceWorker' in navigator) {
-    /*window.addEventListener('load', () => {
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
         navigator.serviceWorker.register('/service-worker.js').then(registration => {
             console.log('SW registered: ', registration);
         }).catch(registrationError => {
             console.log('SW registration failed: ', registrationError);
         });
-    });*/
-    
-    
-    /*navigator.serviceWorker.getRegistrations().then(function(registrations) {
-        for(let registration of registrations) {
-         registration.unregister()
-       } })
-}*/
+    });
+}
+
+//Use the below code to remove service workers
+/*
 navigator.serviceWorker.getRegistrations().then(function(registrations) {
     for(let registration of registrations) {
      registration.unregister()
    } })
-   
+*/
